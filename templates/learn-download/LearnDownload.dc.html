@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Download / lead capture" description="Calm-direction lead magnet (free A1 workbook PDF): cover + form hero with success state, what's inside, page peek, FAQ, teacher CTA" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:inherit;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Free resources</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<section style="background:#FFF4DA"><div style="max-width:1080px;margin:0 auto;padding:48px 28px;display:flex;flex-wrap:wrap;gap:36px;align-items:center">
+<div style="flex:0 1 300px;margin:0 auto"><img src="../../assets/learn/ebook-easy-spanish-shortcuts.png" alt="Spanish A1 Workbook cover" style="width:100%;height:auto;display:block;filter:drop-shadow(0 24px 30px rgba(122,92,23,.3))"></div>
+<div style="flex:1 1 420px;min-width:0">
+<span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A5C17">Free PDF · 40 pages · A1</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,5vw,50px);line-height:1.03;letter-spacing:-.03em;margin:12px 0 0">The free A1 workbook that gets you to your first conversation</h1>
+<p style="font-size:17px;line-height:1.55;color:#4A5A6E;margin:12px 0 0;max-width:52ch">Printable pages by native teachers. Two weeks, answer key included.</p>
+<div ref="{{ formRef }}" style="margin-top:22px;background:#FFFFFF;border-radius:24px;padding:20px;box-shadow:0 18px 40px -24px rgba(122,92,23,.35)">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" style="display:grid;gap:10px">
+<input required="" placeholder="First name" aria-label="First name" style="font:inherit;font-size:16px;border:2px solid #EDE5D8;border-radius:14px;padding:12px 16px;outline:0">
+<input type="email" required="" placeholder="Email" aria-label="Email" style="font:inherit;font-size:16px;border:2px solid #EDE5D8;border-radius:14px;padding:12px 16px;outline:0">
+<button type="submit" style="appearance:none;cursor:pointer;font:inherit;font-weight:800;font-size:16px;color:#FFFFFF;background:#E8672E;border:0;border-radius:14px;padding:14px;box-shadow:0 4px 0 #B84E1F">Send me the PDF</button>
+<span style="font-size:13px;color:#6E7A89;text-align:center">No spam. Unsubscribe in one click.</span>
+</form>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:14px;align-items:center"><img src="../../assets/learn/icons/bulb-check.png" alt="" style="width:56px;height:auto"><div><b style="font-family:'Bricolage Grotesque';font-size:22px">¡Listo! Check your inbox.</b><p style="margin:4px 0 0;font-size:15px;color:#4A5A6E">Your workbook is on its way. <a href="#">Download it now</a>.</p></div></div>
+</sc-if>
+</div>
+</div>
+</div></section>
+<main style="max-width:960px;margin:0 auto;padding:48px 28px 88px">
+<section>
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">What's inside</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px">
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:32px;color:#E8672E">10</b><p style="margin:4px 0 0;font-size:15px;line-height:1.5">Chapters, one per day</p></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:32px;color:#2D9C8F">120</b><p style="margin:4px 0 0;font-size:15px;line-height:1.5">Exercises with answer key</p></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:32px;color:#7B68B0">300</b><p style="margin:4px 0 0;font-size:15px;line-height:1.5">Core words with audio links</p></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:32px;color:#C99A2E">1</b><p style="margin:4px 0 0;font-size:15px;line-height:1.5">Free class to test it live</p></div>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Peek inside</h2>
+<div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+<sc-for list="{{ pages }}" as="p" hint-placeholder-count="3">
+<sc-if value="{{ p.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ p.go }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:10px 16px;border-radius:999px;background:#1B2B40;color:#FFFFFF">{{ p.l }}</button></sc-if>
+<sc-if value="{{ p.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ p.go }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;border:1px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E">{{ p.l }}</button></sc-if>
+</sc-for>
+</div>
+<div style="margin-top:16px;background:#FFFFFF;border-radius:28px;padding:32px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#A44A1D">{{ cur.tag }}</span>
+<b style="display:block;font-family:'Bricolage Grotesque';font-size:26px;margin-top:6px">{{ cur.title }}</b>
+<div style="display:grid;gap:10px;margin-top:16px">
+<sc-for list="{{ cur.rows }}" as="r" hint-placeholder-count="3"><div style="display:flex;gap:12px;align-items:baseline;font-size:17px;border-bottom:2px dashed #EDE5D8;padding-bottom:10px"><b style="color:#6E7A89;font-size:14px">{{ r.n }}</b><span>{{ r.t }}</span></div></sc-for>
+</div>
+</div>
+</section>
+<section style="margin-top:56px;max-width:760px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is it really free?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Yes. No card, no trial. Just your email.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">I'm a total beginner. Is this for me?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">It's made for you. Chapter 1 starts at "hola".</p></details>
+</div>
+</section>
+<section style="margin-top:56px;position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:32px 190px 32px 32px">
+<img src="../../assets/learn/characters/glasses-book.png" alt="" style="position:absolute;right:10px;bottom:-12px;width:170px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.015em">Finish chapter 1, then say it out loud</b>
+<p style="position:relative;margin:8px 0 18px;font-size:16px;color:#C9D2DD">Practice it with a native teacher. First class free.</p>
+<a href="#" style="position:relative;display:inline-block;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Book my free class</a>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Free resources</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, p: 0 };
+  P = [
+    { l: 'Chapter 1', tag: 'CHAPTER 1 · GREETINGS', title: 'Hola, ¿qué tal?', rows: ['Match the greeting to the time of day.', 'Fill in: Me ___ Ana. (llamo)', 'Write 3 ways to say goodbye.'] },
+    { l: 'Vocabulary page', tag: 'CHAPTER 4 · FOOD', title: 'En el mercado', rows: ['la manzana — apple', 'el pan — bread', 'el queso — cheese'] },
+    { l: 'Answer key', tag: 'ANSWERS · CHAPTER 1', title: 'Check yourself', rows: ['1. buenos días / buenas tardes / buenas noches', '2. llamo', '3. adiós, hasta luego, nos vemos'] }
+  ];
+  renderVals(){
+    const { sent, p } = this.state, c = this.P[p];
+    return {
+      sent, notSent: !sent, formRef: el => { this._f = el },
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); if (this._f && this._f.animate) this._f.animate([{ transform: 'scale(.97)' }, { transform: 'scale(1.02)' }, { transform: 'scale(1)' }], { duration: 400, easing: 'cubic-bezier(.3,1.4,.5,1)' }) },
+      pages: this.P.map((x, i) => ({ l: x.l, on: i === p, off: i !== p, go: () => this.setState({ p: i }) })),
+      cur: { tag: c.tag, title: c.title, rows: c.rows.map((t, i) => ({ n: String(i + 1).padStart(2, '0'), t })) }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Learner question" description="Calm-direction Q&A page (¿Por qué 'muerto de hambre'?): learner question card, teacher answer, literal-vs-real meaning, other ways to say it with audio, practice picker, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:inherit;text-decoration:none">Listening</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<main style="max-width:780px;margin:0 auto;padding:36px 28px 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600;flex-wrap:wrap"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Ask a teacher</a><span>/</span><span style="color:#1B2B40">Muerto de hambre</span></nav>
+<section style="margin-top:22px;background:#EFEAF7;border-radius:32px;padding:30px 32px">
+<div style="display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:999px;background:#7B68B0;color:#FFFFFF;display:grid;place-items:center;font-weight:800">D</span><span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Diego asked</b> · A2 learner · 18 found this useful</span></div>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,5vw,46px);line-height:1.05;letter-spacing:-.03em;margin:18px 0 0">¿Por qué se dice <span style="color:#5B4B85">"estoy muerto de hambre"</span>?</h1>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:14px 0 0">"My teacher keeps saying <i>'estoy muerta de hambre'</i>. Literally, 'I'm dead of hunger.' Isn't that really dramatic?"</p>
+</section>
+<section style="margin-top:20px;background:#FFFFFF;border-radius:32px;padding:30px 32px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div style="display:flex;align-items:center;gap:12px"><img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="" style="width:44px;height:44px;border-radius:999px;object-fit:cover;object-position:50% 12%;background:#E3F3F0"><span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Gabriela answers</b> · Native teacher, Guadalajara</span></div>
+<p style="font-family:'Bricolage Grotesque';font-weight:600;font-size:24px;line-height:1.35;letter-spacing:-.01em;margin:18px 0 0;text-wrap:pretty">It's not dramatic at all. It just means <span style="color:#E8672E">"I'm starving."</span> Spanish uses <b>muerto de + feeling</b> to say "extremely."</p>
+<div style="display:flex;gap:12px;align-items:center;background:#F4FAF8;border-radius:16px;padding:12px 16px;margin-top:18px"><button onClick="{{ say }}" data-say="¡Estoy muerta de hambre!" aria-label="Play" style="flex:none;width:38px;height:38px;border-radius:999px;border:0;background:#2D9C8F;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div><div style="font-size:17px;font-weight:700">¡Estoy muerta de hambre!</div><div style="font-size:14px;color:#6E7A89">I'm starving! (a woman speaking: muerta)</div></div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px">
+<div style="background:#FDEBDF;border-radius:20px;padding:18px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#A44A1D">LITERALLY</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">"dead of hunger"</b></div>
+<div style="background:#E3F3F0;border-radius:20px;padding:18px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#2D6E67">REALLY MEANS</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">"I'm starving"</b></div>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Same pattern, other feelings</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<sc-for list="{{ others }}" as="o" hint-placeholder-count="5">
+<div style="display:flex;gap:14px;align-items:center;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:14px 18px"><button onClick="{{ say }}" data-say="{{ o.es }}" aria-label="Play" style="flex:none;width:38px;height:38px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div style="flex:1;min-width:0"><div style="font-size:17px;font-weight:700">{{ o.es }}</div><div style="font-size:14px;color:#6E7A89">{{ o.en }}</div></div></div>
+</sc-for>
+</div>
+</section>
+<section style="margin-top:56px;background:#DDF0EC;border-radius:28px;padding:clamp(20px,4vw,30px)">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Practice in context</span>
+<h3 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:24px;margin:6px 0 0">It's 2 p.m. and you skipped breakfast. You say…</h3>
+<div style="display:grid;gap:10px;margin-top:16px">
+<sc-for list="{{ opts }}" as="o" hint-placeholder-count="3">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;font-size:16px;font-weight:600;padding:13px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #E6DED0;box-shadow:0 3px 0 #E6DED0;color:#1B2B40" style-hover="border-color:#5BB8AE;box-shadow:0 3px 0 #5BB8AE">{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:13px 16px;border-radius:14px;background:#E3F3F0;border:2px solid #2D9C8F;color:#1F4F4A">✓ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:13px 16px;border-radius:14px;background:#FFF1EA;border:2px solid #E8672E;color:#A44A1D">✕ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:600;padding:13px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #EFE9DF;color:#6E7A89">{{ o.label }}</span></sc-if>
+</sc-for>
+</div>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;color:#1F4F4A"><b>Muerto/a de hambre</b> is the everyday way. "Tengo mucha hambre" is fine too, just less vivid.</p></sc-if>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Muerto or muerta?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Match the speaker: <i>muerto</i> for men, <i>muerta</i> for women, <i>muertos</i> for a group.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is it OK at work?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Yes. It's informal but not slang, so it's fine with coworkers.</p></details>
+</div>
+</section>
+<section style="margin-top:56px;position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:32px 190px 32px 32px">
+<img src="../../assets/learn/characters/curly-thinking.png" alt="" style="position:absolute;right:10px;bottom:-12px;width:170px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.015em">Have a question like Diego's?</b>
+<p style="position:relative;margin:8px 0 18px;font-size:16px;color:#C9D2DD">Ask a native teacher in your free class.</p>
+<a href="#" style="position:relative;display:inline-block;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Book my free class</a>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Slang</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { pick: null };
+  OPTS = ['Estoy muerto de hambre.', 'Estoy muerto.', 'Soy hambre.'];
+  say(e){
+    const b = e.currentTarget, t = b.getAttribute('data-say');
+    if (b.animate) b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 300 });
+    if (!window.speechSynthesis || !t) return;
+    speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.speak(u);
+  }
+  renderVals(){
+    const p = this.state.pick, done = p !== null;
+    return {
+      say: e => this.say(e), done,
+      others: [['Estoy muerto de sueño.', "I'm dead tired."], ['Estoy muerta de risa.', "I'm dying of laughter."], ['Estoy muerto de miedo.', "I'm scared to death."], ['Estoy muerta de frío.', "I'm freezing."], ['Estoy muerto de cansancio.', "I'm exhausted."]].map(([es, en]) => ({ es, en })),
+      opts: this.OPTS.map((label, i) => ({ label, pick: () => this.setState({ pick: i }), idle: !done, right: done && i === 0, wrong: done && i === p && i !== 0, dim: done && i !== 0 && i !== p }))
+    };
+  }
+}
+</script>
+</body>
+</html>

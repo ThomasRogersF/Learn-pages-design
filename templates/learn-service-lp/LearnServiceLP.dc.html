@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Service landing page" description="Calm-direction sales page (online Spanish classes): photo hero with trust + CTA, plan picker with monthly/yearly toggle, 3-step how it works, comparison, reviews, FAQ, final CTA" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:#1B2B40;text-decoration:none">Classes</a><a href="#" style="color:inherit;text-decoration:none">Teachers</a><a href="#" style="color:inherit;text-decoration:none">Learn</a><a href="#" style="color:inherit;text-decoration:none">Reviews</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:800;color:#FFFFFF;text-decoration:none;background:#E8672E;border-radius:999px;padding:9px 18px">Book free class</a></div></header>
+<section style="max-width:1160px;margin:0 auto;padding:44px 28px 0;display:flex;flex-wrap:wrap;gap:32px 48px;align-items:center">
+<div style="flex:1 1 440px;min-width:0">
+<span style="display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:#FFFFFF;border:1px solid #EDE5D8"><span style="color:#E8672E;letter-spacing:1px">★★★★★</span>4.9 on Trustpilot · 600+ reviews</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,6.4vw,66px);line-height:.98;letter-spacing:-.035em;margin:18px 0 0">Online Spanish classes that get you <span style="color:#E8672E">talking</span></h1>
+<p style="font-size:19px;line-height:1.55;color:#4A5A6E;margin:16px 0 0;max-width:50ch">Live classes with native Colombian and Mexican teachers. Speak in your very first class.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;align-items:center"><a href="#" style="background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:16px;border-radius:999px;padding:15px 26px;box-shadow:0 5px 0 #B84E1F">Book my free class</a><span style="font-size:14px;color:#6E7A89">50 min · no card needed</span></div>
+</div>
+<div style="flex:1 1 380px;position:relative">
+<div style="border-radius:36px;overflow:hidden;aspect-ratio:5/4;background:#E3F3F0"><img src="../../assets/learn/teachers/set-blonde-cheer.png" alt="SpanishVIP teacher cheering in class" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block"></div>
+<div style="position:absolute;left:-14px;bottom:22px;display:flex;gap:10px;align-items:center;background:#FFFFFF;border-radius:18px;padding:12px 16px;box-shadow:0 18px 40px -16px rgba(27,43,64,.3)"><img src="../../assets/learn/icons/classmates.png" alt="" style="width:40px;height:auto"><div><b style="font-size:15px">12,000+ students</b><div style="font-size:13px;color:#6E7A89">in 60 countries</div></div></div>
+</div>
+</section>
+<main style="max-width:1080px;margin:0 auto;padding:72px 28px 88px">
+<section>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:36px;letter-spacing:-.02em;margin:0">Pick your class</h2>
+<div style="display:flex;gap:4px;background:#F4EFE7;border-radius:999px;padding:4px">
+<sc-if value="{{ monthly }}" hint-placeholder-val="{{ true }}"><button onClick="{{ setM }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">Monthly</button><button onClick="{{ setY }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">Yearly · save 20%</button></sc-if>
+<sc-if value="{{ yearly }}" hint-placeholder-val="{{ false }}"><button onClick="{{ setM }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">Monthly</button><button onClick="{{ setY }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">Yearly · save 20%</button></sc-if>
+</div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px">
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#2D6E67">GROUP CLASSES</span><div><b style="font-family:'Bricolage Grotesque';font-size:44px;letter-spacing:-.03em">${{ p1 }}</b><span style="color:#6E7A89"> /mo</span></div><span style="font-size:15px;color:#4A5A6E">Unlimited small-group classes, max 6 students.</span><div style="display:grid;gap:8px;font-size:15px"><span>✓ 24/7 schedule</span><span>✓ CEFR path A1 → C1</span><span>✓ Recorded feedback</span></div><a href="#" style="margin-top:auto;text-align:center;text-decoration:none;font-weight:800;font-size:15px;color:#1B2B40;border:1.5px solid #1B2B40;border-radius:999px;padding:12px">Start free</a></div>
+<div style="background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:12px;position:relative"><span style="position:absolute;top:-12px;right:22px;font-size:12px;font-weight:800;background:#E8672E;border-radius:999px;padding:5px 12px">Most popular</span><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#9FDCD3">PRIVATE 1-ON-1</span><div><b style="font-family:'Bricolage Grotesque';font-size:44px;letter-spacing:-.03em">${{ p2 }}</b><span style="color:#C9D2DD"> /mo</span></div><span style="font-size:15px;color:#C9D2DD">8 private classes a month with your own teacher.</span><div style="display:grid;gap:8px;font-size:15px"><span>✓ Same teacher every time</span><span>✓ Personal study plan</span><span>✓ Everything in Group</span></div><a href="#" style="margin-top:auto;text-align:center;text-decoration:none;font-weight:800;font-size:15px;color:#FFFFFF;background:#E8672E;border-radius:999px;padding:12px">Start free</a></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#5B4B85">PLUS</span><div><b style="font-family:'Bricolage Grotesque';font-size:44px;letter-spacing:-.03em">${{ p3 }}</b><span style="color:#6E7A89"> /mo</span></div><span style="font-size:15px;color:#4A5A6E">Private and group classes combined.</span><div style="display:grid;gap:8px;font-size:15px"><span>✓ 12 private classes</span><span>✓ Unlimited groups</span><span>✓ DELE prep included</span></div><a href="#" style="margin-top:auto;text-align:center;text-decoration:none;font-weight:800;font-size:15px;color:#1B2B40;border:1.5px solid #1B2B40;border-radius:999px;padding:12px">Start free</a></div>
+</div>
+</section>
+<section style="margin-top:72px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:36px;letter-spacing:-.02em;margin:0">How it works</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px">
+<div style="background:#E3F3F0;border-radius:26px;padding:24px"><b style="font-family:'Bricolage Grotesque';font-size:48px;color:#2D9C8F;line-height:1">1</b><b style="display:block;font-family:'Bricolage Grotesque';font-size:21px;margin-top:10px">Book the free class</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#33505A">Pick any time. 50 minutes, no card.</p></div>
+<div style="background:#FDEBDF;border-radius:26px;padding:24px"><b style="font-family:'Bricolage Grotesque';font-size:48px;color:#E8672E;line-height:1">2</b><b style="display:block;font-family:'Bricolage Grotesque';font-size:21px;margin-top:10px">Meet your teacher in 24h</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#33505A">Matched to your goal and schedule.</p></div>
+<div style="background:#EFEAF7;border-radius:26px;padding:24px"><b style="font-family:'Bricolage Grotesque';font-size:48px;color:#7B68B0;line-height:1">3</b><b style="display:block;font-family:'Bricolage Grotesque';font-size:21px;margin-top:10px">Follow your CEFR path</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#33505A">Track progress level by level.</p></div>
+</div>
+</section>
+<section style="margin-top:72px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:36px;letter-spacing:-.02em;margin:0">Live classes vs apps vs in-person</h2>
+<div style="margin-top:22px;overflow-x:auto;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px"><div style="min-width:560px">
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px;padding:14px 22px;font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89;background:#F7F2EA"><span></span><span style="color:#A44A1D">SPANISHVIP</span><span>APPS</span><span>IN-PERSON</span></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px;padding:14px 22px;border-top:1px solid #F1EBE1;font-size:15px"><b>Speak from day one</b><span style="color:#2D9C8F;font-weight:800">✓</span><span style="color:#6E7A89">✕</span><span style="color:#2D9C8F;font-weight:800">✓</span></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px;padding:14px 22px;border-top:1px solid #F1EBE1;font-size:15px"><b>Native teacher</b><span style="color:#2D9C8F;font-weight:800">✓</span><span style="color:#6E7A89">✕</span><span style="color:#6E7A89">Sometimes</span></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px;padding:14px 22px;border-top:1px solid #F1EBE1;font-size:15px"><b>Any time, from home</b><span style="color:#2D9C8F;font-weight:800">✓</span><span style="color:#2D9C8F;font-weight:800">✓</span><span style="color:#6E7A89">✕</span></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px;padding:14px 22px;border-top:1px solid #F1EBE1;font-size:15px"><b>Price per month</b><span>from ${{ p1 }}</span><span>$10–20</span><span>$200+</span></div>
+</div></div>
+</section>
+<section style="margin-top:72px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:36px;letter-spacing:-.02em;margin:0">From students who came to talk</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px">
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px"><span style="color:#E8672E;letter-spacing:2px">★★★★★</span><p style="margin:10px 0 0;font-size:16px;line-height:1.55">"Two years of apps got me nowhere. Three months here and I ordered dinner in Mexico City."</p><b style="display:block;margin-top:12px;font-size:14px;color:#6E7A89">Jason, California</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px"><span style="color:#E8672E;letter-spacing:2px">★★★★★</span><p style="margin:10px 0 0;font-size:16px;line-height:1.55">"Classes at 6 a.m. before work. The flexibility is the only reason I stuck with it."</p><b style="display:block;margin-top:12px;font-size:14px;color:#6E7A89">Emma, Sydney</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px"><span style="color:#E8672E;letter-spacing:2px">★★★★★</span><p style="margin:10px 0 0;font-size:16px;line-height:1.55">"My teacher remembers my kids' names. It feels like talking to a friend."</p><b style="display:block;margin-top:12px;font-size:14px;color:#6E7A89">David, Chicago</b></div>
+</div>
+</section>
+<section style="margin-top:72px;max-width:760px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Can I cancel anytime?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Yes, in two clicks from your account.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">I'm a complete beginner. Is that OK?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Most of our students start at zero. Your teacher adapts to you.</p></details>
+</div>
+</section>
+<section style="margin-top:72px;position:relative;overflow:hidden;background:#E8672E;color:#FFFFFF;border-radius:32px;padding:40px 220px 40px 40px">
+<img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:16px;bottom:-14px;width:190px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;line-height:1.05">Your first Spanish conversation is one click away</b>
+<div style="position:relative;margin-top:20px"><a href="#" style="display:inline-block;background:#FFFFFF;color:#1B2B40;text-decoration:none;font-weight:800;font-size:16px;border-radius:999px;padding:14px 24px">Book my free class</a></div>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Classes</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><a href="#" style="color:#1B2B40;text-decoration:none">Learn</a><a href="#" style="color:#1B2B40;text-decoration:none">Reviews</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { y: false };
+  renderVals(){
+    const y = this.state.y, k = y ? .8 : 1;
+    return {
+      monthly: !y, yearly: y, setM: () => this.setState({ y: false }), setY: () => this.setState({ y: true }),
+      p1: Math.round(79 * k), p2: Math.round(159 * k), p3: Math.round(219 * k)
+    };
+  }
+}
+</script>
+</body>
+</html>

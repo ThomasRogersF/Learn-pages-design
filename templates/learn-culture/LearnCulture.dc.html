@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Culture guide" description="Calm-direction culture field guide (Día de los Muertos): full-bleed photo hero, ofrenda explorer with vocab + audio, holiday comparison, regional cards, key phrases, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:inherit;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Culture</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<section style="max-width:1160px;margin:24px auto 0;padding:0 28px">
+<div style="position:relative;border-radius:36px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;background:#3A2A4E">
+<img src="../../assets/learn/photo-cafe-medellin.png" alt="Placeholder: marigolds and candles on an ofrenda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,20,40,0) 30%,rgba(27,20,40,.82))"></div>
+<div style="position:relative;padding:40px;max-width:640px;color:#FFFFFF">
+<span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FFD9A8">Culture · Mexico · Nov 1–2</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(44px,7vw,76px);line-height:.98;letter-spacing:-.035em;margin:12px 0 0">Día de los Muertos</h1>
+<p style="font-size:18px;line-height:1.55;margin:12px 0 0;color:#F1E9F7">The holiday most people get wrong, and the Spanish words to talk about it like someone who's lived it.</p>
+</div>
+</div>
+</section>
+<main style="max-width:840px;margin:0 auto;padding:40px 28px 88px">
+<div style="display:flex;align-items:center;gap:12px"><img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:50% 12%;background:#E3F3F0"><span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Gabriela L.</b> · Grew up building ofrendas in Guadalajara</span></div>
+<section style="margin-top:28px;display:flex;gap:16px;align-items:flex-start;background:#E3F3F0;border-radius:24px;padding:24px 26px">
+<img src="../../assets/learn/icons/bulb-check.png" alt="" style="flex:none;width:48px;height:48px;object-fit:contain">
+<div><span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">In one line</span><p style="margin:6px 0 0;font-size:17px;line-height:1.6">It's not "Mexican Halloween." It's a warm family reunion where the dead are <b>invited home</b> as honored guests.</p></div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Explore the ofrenda</h2>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0">Five things on every altar. Tap one.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+<sc-for list="{{ items }}" as="it" hint-placeholder-count="5">
+<sc-if value="{{ it.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ it.go }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:800;font-size:15px;padding:10px 18px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;box-shadow:0 4px 0 #B84E1F">{{ it.es }}</button></sc-if>
+<sc-if value="{{ it.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ it.go }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:15px;padding:10px 18px;border-radius:999px;border:2px solid #EDE5D8;background:#FFFFFF;color:#1B2B40;box-shadow:0 4px 0 #EDE5D8" style-hover="border-color:#F2A77F">{{ it.es }}</button></sc-if>
+</sc-for>
+</div>
+<div ref="{{ cardRef }}" style="margin-top:16px;background:#FFFFFF;border-radius:28px;padding:28px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><b style="font-family:'Bricolage Grotesque';font-size:34px;letter-spacing:-.02em">{{ cur.es }}</b><button onClick="{{ say }}" data-say="{{ cur.es }}" aria-label="Play" style="flex:none;width:44px;height:44px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="14" height="14" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><span style="font-size:16px;font-weight:700;color:#A44A1D">{{ cur.en }}</span></div>
+<p style="margin:12px 0 0;font-size:17px;line-height:1.6;color:#4A5A6E">{{ cur.d }}</p>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Not Halloween</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:20px">
+<div style="background:#F4EFE7;border-radius:24px;padding:24px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">HALLOWEEN · OCT 31</span><div style="display:grid;gap:10px;margin-top:14px;font-size:16px;line-height:1.5"><span><b>Roots:</b> scaring spirits away</span><span><b>Mood:</b> spooky, playful</span><span><b>Center:</b> the doorstep, candy, costumes</span></div></div>
+<div style="background:#FDEBDF;border-radius:24px;padding:24px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#A44A1D">DÍA DE LOS MUERTOS · NOV 1–2</span><div style="display:grid;gap:10px;margin-top:14px;font-size:16px;line-height:1.5"><span><b>Roots:</b> inviting the dead back</span><span><b>Mood:</b> tender, celebratory</span><span><b>Center:</b> the ofrenda and the cemetery</span></div></div>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Phrases you'll hear</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<sc-for list="{{ phrases }}" as="p" hint-placeholder-count="4">
+<div style="display:flex;gap:14px;align-items:center;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:14px 18px"><button onClick="{{ say }}" data-say="{{ p.es }}" aria-label="Play" style="flex:none;width:38px;height:38px;border-radius:999px;border:0;background:#2D9C8F;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div style="min-width:0"><div style="font-size:17px;font-weight:700">{{ p.es }}</div><div style="font-size:14px;color:#6E7A89">{{ p.en }}</div></div></div>
+</sc-for>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Across Mexico</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px">
+<div style="background:#EFEAF7;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:20px">Pátzcuaro</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#4A5A6E">Candlelit boats cross the lake to the island cemetery.</p></div>
+<div style="background:#FFF4DA;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:20px">Oaxaca</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#4A5A6E">Sand tapestries and all-night <i>comparsas</i> in the streets.</p></div>
+<div style="background:#E3F3F0;border-radius:22px;padding:20px"><b style="font-family:'Bricolage Grotesque';font-size:20px">Mexico City</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5;color:#4A5A6E">A giant parade and the Zócalo filled with ofrendas.</p></div>
+</div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Can visitors join in?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Yes, respectfully. Ask before photographing family ofrendas or graves.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Día de Muertos or Día de los Muertos?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Both are correct. In Mexico, <i>Día de Muertos</i> is more common.</p></details>
+</div>
+</section>
+<section style="margin-top:56px;position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:32px 190px 32px 32px">
+<img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:10px;bottom:-12px;width:170px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.015em">Practice Mexican Spanish with a teacher from Guadalajara</b>
+<p style="position:relative;margin:8px 0 18px;font-size:16px;color:#C9D2DD">Your first class is free.</p>
+<a href="#" style="position:relative;display:inline-block;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Book my free class</a>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Culture</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { i: 0 };
+  ITEMS = [
+    ['la ofrenda', 'the altar', 'A home altar layered with photos of loved ones, candles, food and personal mementos. Building it is an act of memory.'],
+    ['el cempasúchil', 'marigolds', 'Bright orange and strongly scented. Petals are scattered in a path to guide the spirits home.'],
+    ['la calavera', 'the skull', 'Sugar skulls and the elegant La Catrina celebrate death without fear, and gently mock it.'],
+    ['las velas', 'candles', 'Light and burning copal incense guide and honor the visiting spirits.'],
+    ['el pan de muerto', 'bread of the dead', 'A soft, orange-scented sweet bread baked only this season, topped with bone-shaped dough.']
+  ];
+  say(e){
+    const b = e.currentTarget, t = b.getAttribute('data-say');
+    if (b.animate) b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 300 });
+    if (!window.speechSynthesis || !t) return;
+    speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.speak(u);
+  }
+  renderVals(){
+    const i = this.state.i, c = this.ITEMS[i];
+    return {
+      say: e => this.say(e), cardRef: el => { this._card = el },
+      items: this.ITEMS.map(([es], k) => ({ es, on: k === i, off: k !== i, go: () => { this.setState({ i: k }); if (this._card && this._card.animate) this._card.animate([{ opacity: .3, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 280, easing: 'ease-out' }) } })),
+      cur: { es: c[0], en: c[1], d: c[2] },
+      phrases: [['¿Ya pusieron la ofrenda?', 'Have you set up the altar yet?'], ['Vamos al panteón esta noche.', "We're going to the cemetery tonight."], ['Le pusimos su comida favorita.', 'We put out his favorite food.'], ['¿Me regalas un pan de muerto?', 'Can I have a pan de muerto?']].map(([es, en]) => ({ es, en }))
+    };
+  }
+}
+</script>
+</body>
+</html>

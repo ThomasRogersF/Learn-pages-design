@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Quiz (level test)" description="Calm-direction CEFR level test: intro, 8-question adaptive-style quiz with bounce/shake feedback, result with skill rings, CEFR ladder, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}</style></helmet>
+<div ref="{{ rootRef }}" style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="position:sticky;top:0;z-index:10;background:rgba(251,247,241,.95);border-bottom:1px solid #EDE5D8">
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px">
+<img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto">
+<nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden">
+<a href="#" style="color:inherit;text-decoration:none">Grammar</a>
+<a href="#" style="color:inherit;text-decoration:none">Vocabulary</a>
+<a href="#" style="color:inherit;text-decoration:none">Listening</a>
+<a href="#" style="color:#1B2B40;text-decoration:none">Quizzes</a>
+</nav>
+<a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a>
+</div>
+<div style="height:3px"><div ref="{{ progRef }}" style="height:3px;width:0;background:#5BB8AE;border-radius:0 3px 3px 0"></div></div>
+</header>
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;display:flex;gap:56px;align-items:flex-start;justify-content:center">
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<aside style="flex:0 0 190px;position:sticky;top:92px;margin-top:150px;display:grid;gap:2px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6E7A89;margin:0 0 8px 12px">On this page</span>
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="6"><a href="{{ t.href }}" style="font-size:14px;font-weight:600;color:#4A5A6E;text-decoration:none;padding:7px 12px;border-left:2px solid #E6DED0" style-hover="color:#1B2B40;border-left-color:#5BB8AE">{{ t.label }}</a></sc-for>
+</aside>
+</sc-if>
+<main style="flex:1 1 auto;max-width:760px;min-width:0;padding:36px 0 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Quizzes</a><span>/</span><span style="color:#1B2B40">Spanish level test</span></nav>
+<div style="display:flex;gap:8px;margin-top:22px;flex-wrap:wrap">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#E3F3F0;color:#2D6E67">All levels · A1–C1</span>
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#FDEBDF;color:#A44A1D">Quiz</span>
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#EFEAF7;color:#5B4B85">8 questions · 5 min · No sign-up</span>
+</div>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(38px,6vw,54px);line-height:1.04;letter-spacing:-.025em;margin:18px 0 0;text-wrap:balance">What's your <span style="color:#E8672E">Spanish level</span>?</h1>
+<p style="font-size:19px;line-height:1.55;color:#4A5A6E;margin:16px 0 0;max-width:58ch;text-wrap:pretty">Eight questions that get harder as you go. In five minutes you'll know where you stand, from beginner to advanced, and exactly what to practice next.</p>
+<div style="display:flex;align-items:center;gap:12px;margin-top:22px">
+<img src="../../assets/learn/teachers/headshot-man-curly.png" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:50% 12%;background:#E3F3F0">
+<span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Mateo C.</b> · Native teacher, Medellín · Updated Jun 9, 2026</span>
+</div>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;overflow-x:auto;margin-top:24px;padding:10px 0">
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="6"><a href="{{ t.href }}" style="flex:none;font-size:13px;font-weight:700;color:#1B2B40;text-decoration:none;padding:8px 14px;border-radius:999px;background:#FFFFFF;border:1px solid #EDE5D8">{{ t.label }}</a></sc-for>
+</div>
+</sc-if>
+<section id="q-test" style="scroll-margin-top:90px;margin-top:32px;background:#DDF0EC;border-radius:32px;padding:clamp(20px,4vw,32px)">
+<sc-if value="{{ isIntro }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;background:#FFFFFF;border-radius:24px;padding:28px 28px 0;overflow:hidden">
+<div style="flex:1 1 300px;min-width:0;padding-bottom:28px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Free level test</span>
+<h2 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:30px;letter-spacing:-.02em;line-height:1.1;margin:8px 0 0">Ready when you are</h2>
+<div style="display:grid;gap:10px;margin-top:16px;font-size:15px;line-height:1.5">
+<div style="display:flex;gap:10px;align-items:center"><span style="flex:none;width:24px;height:24px;border-radius:999px;background:#E3F3F0;color:#2D6E67;display:grid;place-items:center;font-size:12px;font-weight:800">1</span><span>Grammar, vocabulary and reading</span></div>
+<div style="display:flex;gap:10px;align-items:center"><span style="flex:none;width:24px;height:24px;border-radius:999px;background:#FDEBDF;color:#A44A1D;display:grid;place-items:center;font-size:12px;font-weight:800">2</span><span>Questions get harder as you go</span></div>
+<div style="display:flex;gap:10px;align-items:center"><span style="flex:none;width:24px;height:24px;border-radius:999px;background:#EFEAF7;color:#5B4B85;display:grid;place-items:center;font-size:12px;font-weight:800">3</span><span>Guess if unsure. Skipping counts as wrong.</span></div>
+</div>
+<button onClick="{{ start }}" style="appearance:none;border:0;cursor:pointer;margin-top:22px;font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;padding:15px 28px;border-radius:18px;background:#E8672E;color:#FFFFFF;box-shadow:0 5px 0 #B84E1F" style-active="transform:translateY(4px);box-shadow:0 1px 0 #B84E1F">Start the test</button>
+</div>
+<img src="../../assets/learn/characters/curly-thinking.png" alt="" style="flex:0 0 170px;width:170px;height:auto;align-self:flex-end;display:block;margin:0 auto">
+</div>
+</sc-if>
+<sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:14px">
+<div style="flex:1;height:12px;background:#FFFFFF;border-radius:999px;overflow:hidden"><div ref="{{ barRef }}" style="height:12px;width:0;background:#2D9C8F;border-radius:999px;transition:width .5s cubic-bezier(.3,1.4,.5,1)"></div></div>
+<b style="flex:none;font-size:14px">{{ qNum }} / {{ total }}</b>
+</div>
+<div ref="{{ cardRef }}" style="margin-top:18px;background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 14px 30px -20px rgba(27,43,64,.3)">
+<sc-if value="{{ skGrammar }}" hint-placeholder-val="{{ true }}"><span style="font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E3F3F0;color:#2D6E67">Grammar · {{ qLevel }}</span></sc-if>
+<sc-if value="{{ skVocab }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#FDEBDF;color:#A44A1D">Vocabulary · {{ qLevel }}</span></sc-if>
+<sc-if value="{{ skReading }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#EFEAF7;color:#5B4B85">Reading · {{ qLevel }}</span></sc-if>
+<sc-if value="{{ hasPassage }}" hint-placeholder-val="{{ false }}"><div style="margin-top:16px;background:#F7F3EC;border-radius:16px;padding:16px 18px;font-size:17px;line-height:1.6;font-style:italic">{{ passage }}</div></sc-if>
+<p style="margin:16px 0 0;font-family:'Bricolage Grotesque';font-weight:600;font-size:clamp(22px,3.6vw,28px);line-height:1.3;letter-spacing:-.01em">{{ prompt }}</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:20px">
+<sc-for list="{{ opts }}" as="o" hint-placeholder-count="4">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#FFFFFF;border:2px solid #E6DED0;box-shadow:0 3px 0 #E6DED0;color:#1B2B40;font-size:16px;font-weight:600" style-hover="border-color:#5BB8AE;box-shadow:0 3px 0 #5BB8AE" style-active="transform:translateY(3px);box-shadow:0 0 0 #5BB8AE"><span style="flex:none;width:28px;height:28px;border-radius:10px;background:#F4EFE7;display:grid;place-items:center;font-size:13px;font-weight:800;color:#4A5A6E">{{ o.key }}</span>{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#E3F3F0;border:2px solid #2D9C8F;box-shadow:0 3px 0 #2D9C8F;font-size:16px;font-weight:700;color:#1F4F4A"><span style="flex:none;width:28px;height:28px;border-radius:10px;background:#2D9C8F;color:#FFFFFF;display:grid;place-items:center;font-size:14px;font-weight:800">✓</span>{{ o.label }}</div></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#FFF1EA;border:2px solid #E8672E;box-shadow:0 3px 0 #E8672E;font-size:16px;font-weight:700;color:#A44A1D"><span style="flex:none;width:28px;height:28px;border-radius:10px;background:#E8672E;color:#FFFFFF;display:grid;place-items:center;font-size:14px;font-weight:800">✕</span>{{ o.label }}</div></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#FFFFFF;border:2px solid #EFE9DF;font-size:16px;font-weight:600;color:#6E7A89"><span style="flex:none;width:28px;height:28px;border-radius:10px;background:#F7F3EC;display:grid;place-items:center;font-size:13px;font-weight:800">{{ o.key }}</span>{{ o.label }}</div></sc-if>
+</sc-for>
+</div>
+<sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px dashed #E6DED0;padding-top:16px">
+<span style="flex:1 1 260px;font-size:15px;line-height:1.5;color:#4A5A6E"><b style="color:#1B2B40">{{ verdict }}</b> {{ why }}</span>
+<button onClick="{{ next }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;background:#1B2B40;color:#FFFFFF;border-radius:999px;padding:12px 22px">{{ nextLabel }}</button>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+<div ref="{{ resultRef }}" style="background:#FFFFFF;border-radius:24px;overflow:hidden">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 24px;padding:28px 28px 0;background:#FFF4DA">
+<div style="flex:1 1 280px;min-width:0;padding-bottom:28px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A5C17">Your Spanish level</span>
+<div style="display:flex;align-items:baseline;gap:14px;margin-top:6px"><b ref="{{ levelRef }}" style="display:inline-block;font-family:'Bricolage Grotesque';font-weight:800;font-size:76px;line-height:1;letter-spacing:-.04em;color:#E8672E">{{ level }}</b><span style="font-family:'Bricolage Grotesque';font-weight:700;font-size:24px">{{ levelName }}</span></div>
+<p style="margin:12px 0 0;font-size:16px;line-height:1.6;max-width:46ch">{{ levelDesc }}</p>
+</div>
+<img src="../../assets/learn/characters/redhair-thumbsup.png" alt="" style="flex:0 0 150px;width:150px;height:auto;display:block;margin:0 auto">
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:24px 28px 0">
+<div style="display:flex;align-items:center;gap:12px;background:#F4FAF8;border-radius:18px;padding:14px"><svg width="64" height="64" viewBox="0 0 64 64" style="flex:none"><circle cx="32" cy="32" r="26" fill="none" stroke="#DDF0EC" stroke-width="7"></circle><circle ref="{{ ringG }}" cx="32" cy="32" r="26" fill="none" stroke="#2D9C8F" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4" transform="rotate(-90 32 32)" style="transition:stroke-dashoffset .9s cubic-bezier(.3,1.3,.5,1) .15s"></circle></svg><div><b style="font-size:15px">Grammar</b><div style="font-size:14px;color:#4A5A6E">{{ gText }}</div></div></div>
+<div style="display:flex;align-items:center;gap:12px;background:#FEF5EF;border-radius:18px;padding:14px"><svg width="64" height="64" viewBox="0 0 64 64" style="flex:none"><circle cx="32" cy="32" r="26" fill="none" stroke="#FDEBDF" stroke-width="7"></circle><circle ref="{{ ringV }}" cx="32" cy="32" r="26" fill="none" stroke="#E8672E" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4" transform="rotate(-90 32 32)" style="transition:stroke-dashoffset .9s cubic-bezier(.3,1.3,.5,1) .3s"></circle></svg><div><b style="font-size:15px">Vocabulary</b><div style="font-size:14px;color:#4A5A6E">{{ vText }}</div></div></div>
+<div style="display:flex;align-items:center;gap:12px;background:#F6F3FB;border-radius:18px;padding:14px"><svg width="64" height="64" viewBox="0 0 64 64" style="flex:none"><circle cx="32" cy="32" r="26" fill="none" stroke="#EFEAF7" stroke-width="7"></circle><circle ref="{{ ringR }}" cx="32" cy="32" r="26" fill="none" stroke="#7B68B0" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4" transform="rotate(-90 32 32)" style="transition:stroke-dashoffset .9s cubic-bezier(.3,1.3,.5,1) .45s"></circle></svg><div><b style="font-size:15px">Reading</b><div style="font-size:14px;color:#4A5A6E">{{ rText }}</div></div></div>
+</div>
+<div style="padding:24px 28px 28px;display:grid;gap:16px">
+<div style="display:flex;gap:14px;align-items:flex-start"><img src="../../assets/learn/icons/bulb-check.png" alt="" style="flex:none;width:48px;height:48px;object-fit:contain"><div><b style="font-size:16px">Your next step</b><p style="margin:4px 0 0;font-size:15px;line-height:1.6;color:#4A5A6E">{{ nextStep }}</p></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="#" style="text-decoration:none;font-weight:800;font-size:15px;background:#E8672E;color:#FFFFFF;border-radius:999px;padding:12px 20px">Get your {{ level }} lesson plan in a free class</a>
+<button onClick="{{ restart }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:15px;background:#FFFFFF;color:#1B2B40;border:1.5px solid #1B2B40;border-radius:999px;padding:11px 20px">Retake the test</button>
+</div>
+</div>
+</div>
+</sc-if>
+</section>
+<section id="q-how" style="scroll-margin-top:90px;margin-top:64px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">How the test works</h2>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0;max-width:60ch">A quick placement check, not a certificate. Built by our teachers from the questions they use in a first class.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:22px">
+<div style="background:#E3F3F0;border-radius:22px;padding:22px"><img src="../../assets/learn/icons/enye-book.png" alt="" style="width:52px;height:52px;object-fit:contain;display:block"><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:10px">Three skills</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Grammar, vocabulary and reading, scored separately.</p></div>
+<div style="background:#FDEBDF;border-radius:22px;padding:22px"><img src="../../assets/learn/icons/enye-cards.png" alt="" style="width:52px;height:52px;object-fit:contain;display:block"><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:10px">Rising difficulty</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Two questions per level, A1 through B2.</p></div>
+<div style="background:#EFEAF7;border-radius:22px;padding:22px"><img src="../../assets/learn/icons/clock-calendar.png" alt="" style="width:52px;height:52px;object-fit:contain;display:block"><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:10px">Five minutes</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Instant result. Nothing to sign up for.</p></div>
+</div>
+</section>
+<section id="q-levels" style="scroll-margin-top:90px;margin-top:64px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">What each level means</h2>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0;max-width:60ch">The CEFR scale in plain English.</p>
+<div style="display:grid;gap:10px;margin-top:22px">
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#5BB8AE">A1</b><div style="flex:1;min-width:0"><b style="font-size:16px">Beginner</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Greetings, introductions, ordering a coffee.</div></div><sc-if value="{{ you0 }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E8672E;color:#FFFFFF">You</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#3FA397">A2</b><div style="flex:1;min-width:0"><b style="font-size:16px">Elementary</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Simple past, daily routines, short messages.</div></div><sc-if value="{{ you1 }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E8672E;color:#FFFFFF">You</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#2D8A7F">B1</b><div style="flex:1;min-width:0"><b style="font-size:16px">Intermediate</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Most everyday conversations; telling stories in the past.</div></div><sc-if value="{{ you2 }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E8672E;color:#FFFFFF">You</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#E8672E">B2</b><div style="flex:1;min-width:0"><b style="font-size:16px">Upper intermediate</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Opinions, the subjunctive, fluent talk with natives.</div></div><sc-if value="{{ you3 }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E8672E;color:#FFFFFF">You</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#C4551F">C1</b><div style="flex:1;min-width:0"><b style="font-size:16px">Advanced</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Nuance, idioms, work and academic Spanish.</div></div><sc-if value="{{ you4 }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E8672E;color:#FFFFFF">You</span></sc-if></div>
+<div style="display:flex;align-items:center;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 20px"><b style="flex:0 0 56px;font-family:'Bricolage Grotesque';font-size:28px;color:#1B2B40">C2</b><div style="flex:1;min-width:0"><b style="font-size:16px">Mastery</b><div style="font-size:15px;line-height:1.5;color:#4A5A6E">Near-native in any situation. Beyond what this test measures.</div></div></div>
+</div>
+</section>
+<section style="margin-top:56px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;background:#FFFFFF;border-radius:28px;padding:24px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div style="flex:0 0 200px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#E3F3F0;margin:0 auto"><img src="../../assets/learn/teachers/set-smiling-lightbox.jpg" alt="SpanishVIP teacher at her desk" style="width:100%;height:100%;object-fit:cover;object-position:40% 30%;display:block"></div>
+<div style="flex:1 1 300px;min-width:0">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Teacher tip · Mateo</span>
+<p style="font-family:'Bricolage Grotesque';font-weight:600;font-size:21px;line-height:1.4;letter-spacing:-.01em;margin:8px 0 0;text-wrap:pretty">"Most self-taught learners read a level higher than they speak. Treat your result as a reading score, then test your speaking in a real conversation."</p>
+</div>
+</section>
+<section id="q-faq" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/question-bubbles.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Questions learners ask</h2></div>
+<div style="display:grid;gap:10px;margin-top:22px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">How accurate is an 8-question test?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Accurate enough to place you within a level. A teacher can confirm it in a 10-minute conversation.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is this an official DELE or SIELE result?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">No. It uses the same CEFR scale, but it's a placement check, not a certificate.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">How long does it take to move up a level?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Roughly 150–200 hours of study and practice per level, less with regular speaking practice.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Can I retake it?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Anytime. Retake it every month or two to track your progress.</p></details>
+</div>
+</section>
+<section id="q-next" style="scroll-margin-top:90px;margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<a href="#" style="text-decoration:none;color:inherit;background:#FFFFFF;border-radius:24px;overflow:hidden;border:1px solid #EDE5D8"><div style="aspect-ratio:16/8;background:#EFEAF7;overflow:hidden"><img src="../../assets/learn/teachers/set-blonde-neon-sign.jpg" alt="SpanishVIP teacher at her desk" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div><div style="padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#5B4B85">START HERE · A2</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">Ser vs estar, finally clear</b><span style="font-size:14px;color:#4A5A6E">The rule behind question 1, with a drill.</span></div></a>
+<div style="position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:24px;padding:24px 120px 24px 24px;display:grid;align-content:space-between;gap:16px"><img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:-6px;bottom:-14px;width:130px;height:auto;pointer-events:none"><div style="position:relative"><b style="font-family:'Bricolage Grotesque';font-size:22px">Confirm your level with a native teacher</b><p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#C9D2DD">A free class with teachers from Medellín.</p></div><a href="#" style="position:relative;justify-self:start;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 20px">Try a free class</a></div>
+</section>
+</main>
+</div>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6">
+<div style="max-width:1160px;margin:0 auto;padding:44px 28px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px">
+<div style="display:grid;gap:12px;align-content:start"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:28px;width:auto;justify-self:start"><span style="font-size:14px;line-height:1.5;color:#4A5A6E">Free Spanish lessons from native teachers.</span></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">LEARN</b><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Slang</a><a href="#" style="color:#1B2B40;text-decoration:none">Listening</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">PRACTICE</b><a href="#" style="color:#1B2B40;text-decoration:none">Level test</a><a href="#" style="color:#1B2B40;text-decoration:none">Verb conjugator</a><a href="#" style="color:#1B2B40;text-decoration:none">Word of the day</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">SPANISHVIP</b><a href="#" style="color:#1B2B40;text-decoration:none">Live classes</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><a href="#" style="color:#1B2B40;text-decoration:none">Reviews</a></div>
+</div>
+<div style="max-width:1160px;margin:0 auto;padding:16px 28px 28px;border-top:1px dashed #DDD3C3;font-size:13px;color:#6E7A89">© 2026 SpanishVIP</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { phase: 'intro', q: 0, picked: null, answers: [], wide: true };
+  Q = [
+    { sk: 'g', lv: 'A1', prompt: 'Yo ___ estudiante.', opts: ['soy', 'estoy', 'es', 'eres'], a: 0, why: 'Occupation and identity take ser: yo soy.' },
+    { sk: 'v', lv: 'A1', prompt: 'In a restaurant, what is "la cuenta"?', opts: ['The bill', 'The menu', 'The tip', 'The table'], a: 0, why: '"La cuenta, por favor" asks for the bill.' },
+    { sk: 'g', lv: 'A2', prompt: 'Ayer yo ___ a la playa con mis amigos.', opts: ['iba', 'fui', 'voy', 'iré'], a: 1, why: 'A finished action at a set time (ayer) takes the preterite: fui.' },
+    { sk: 'r', lv: 'A2', passage: '"Hola Ana, hoy no puedo ir al cine porque tengo que trabajar. ¿Vamos mañana?"', prompt: 'Why can\'t he go to the movies?', opts: ['He is sick', 'He has to work', 'The cinema is closed', 'He has no money'], a: 1, why: '"Tengo que trabajar" means "I have to work."' },
+    { sk: 'g', lv: 'B1', prompt: 'Cuando era niño, siempre ___ con mi hermano.', opts: ['jugué', 'juego', 'jugaba', 'jugaría'], a: 2, why: 'Repeated past habits (siempre) take the imperfect: jugaba.' },
+    { sk: 'v', lv: 'B1', prompt: 'What does "echar de menos" mean?', opts: ['To throw away', 'To miss someone', 'To be late', 'To lose weight'], a: 1, why: '"Te echo de menos" means "I miss you."' },
+    { sk: 'g', lv: 'B2', prompt: 'Espero que ___ a la fiesta mañana.', opts: ['vienes', 'vendrás', 'venir', 'vengas'], a: 3, why: '"Espero que" (a wish) triggers the subjunctive: vengas.' },
+    { sk: 'r', lv: 'B2', passage: '"Si hubiera sabido que iba a llover, habría traído un paraguas."', prompt: 'What happened?', opts: ['It rained and they had no umbrella', 'They brought an umbrella', 'It didn\'t rain', 'They bought an umbrella'], a: 0, why: 'Past hypothetical: "If I had known… I would have brought one."' }
+  ];
+  L = [
+    ['A1', 'Beginner', 'You know the essentials. Next up: building complete sentences with confidence.', 'Lock in ser vs estar and the present tense of the 20 most common verbs.'],
+    ['A2', 'Elementary', 'You can handle simple everyday exchanges and talk about your routine.', 'Master the preterite so you can tell what happened yesterday or last weekend.'],
+    ['B1', 'Intermediate', 'You handle most everyday conversations, but advanced past tenses and fast speech still trip you up.', 'Drill preterite vs imperfect, then start on the present subjunctive.'],
+    ['B2', 'Upper intermediate', 'You can give opinions and follow natives at normal speed. The subjunctive is your next frontier.', 'Practice the past subjunctive and conditional in real conversations.'],
+    ['C1', 'Advanced', 'You got everything right. You\'re past what an 8-question test can measure.', 'Polish nuance and idioms with a native teacher. That\'s where C1 becomes C2.']
+  ];
+  componentDidMount(){
+    this._onScroll = () => {
+      const r = this._root; if (!r || !this._prog) return;
+      const b = r.getBoundingClientRect(), h = window.innerHeight;
+      this._prog.style.width = (Math.min(1, Math.max(0, -b.top / Math.max(1, b.height - h))) * 100) + '%';
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.ResizeObserver && this._root) {
+      this._ro = new ResizeObserver(([e]) => this.setState({ wide: e.contentRect.width >= 1040 }));
+      this._ro.observe(this._root);
+    }
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); this._ro && this._ro.disconnect() }
+  componentDidUpdate(){ this.sync() }
+  sync(){
+    const { q, picked, phase } = this.state, t = this.Q.length;
+    if (this._bar) this._bar.style.width = (Math.min(q + (picked !== null ? 1 : 0), t) / t * 100) + '%';
+    if (phase === 'done' && !this._ringsSet) {
+      this._ringsSet = true;
+      const s = this.skills();
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        [[this._rg, s.g], [this._rv, s.v], [this._rr, s.r]].forEach(([el, [c, n]]) => { if (el) el.style.strokeDashoffset = 163.4 * (1 - c / n) });
+      }));
+      if (this._lvl && this._lvl.animate) this._lvl.animate([{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1.15)', opacity: 1 }, { transform: 'scale(1)' }], { duration: 650, easing: 'cubic-bezier(.3,1.4,.5,1)' });
+    }
+  }
+  skills(){
+    const s = { g: [0, 0], v: [0, 0], r: [0, 0] };
+    this.state.answers.forEach((ok, i) => { const k = this.Q[i].sk; s[k][1]++; if (ok) s[k][0]++ });
+    return s;
+  }
+  pick(i){
+    if (this.state.picked !== null) return;
+    const ok = this.Q[this.state.q].a === i;
+    this.setState(s => ({ picked: i, answers: s.answers.concat(ok) }));
+    const el = this._card;
+    if (el && el.animate) el.animate(ok
+      ? [{ transform: 'scale(1)' }, { transform: 'scale(1.03)' }, { transform: 'scale(.99)' }, { transform: 'scale(1)' }]
+      : [{ transform: 'translateX(0)' }, { transform: 'translateX(-10px)' }, { transform: 'translateX(9px)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(0)' }],
+      { duration: ok ? 420 : 380, easing: 'cubic-bezier(.3,1.4,.5,1)' });
+  }
+  next(){
+    const last = this.state.q >= this.Q.length - 1;
+    this._ringsSet = false;
+    this.setState(s => last ? { phase: 'done', picked: null } : { q: s.q + 1, picked: null });
+  }
+  renderVals(){
+    const { phase, q, picked, answers, wide } = this.state, t = this.Q.length, cur = this.Q[q];
+    const score = answers.filter(Boolean).length, li = Math.min(4, Math.floor(score / 2)), lv = this.L[li], s = this.skills();
+    const keys = ['A', 'B', 'C', 'D'], ans = picked !== null;
+    const v = {
+      rootRef: el => { this._root = el }, progRef: el => { this._prog = el },
+      barRef: el => { this._bar = el; this.sync() }, cardRef: el => { this._card = el },
+      resultRef: el => { this._res = el }, levelRef: el => { this._lvl = el },
+      ringG: el => { this._rg = el; if (el) this.sync() }, ringV: el => { this._rv = el }, ringR: el => { this._rr = el },
+      wide, narrow: !wide,
+      toc: [
+        { href: '#q-test', label: 'Take the test' }, { href: '#q-how', label: 'How it works' },
+        { href: '#q-levels', label: 'Levels explained' }, { href: '#q-faq', label: 'FAQ' }, { href: '#q-next', label: 'Next steps' }
+      ],
+      isIntro: phase === 'intro', isPlaying: phase === 'play', isDone: phase === 'done',
+      start: () => this.setState({ phase: 'play', q: 0, picked: null, answers: [] }),
+      restart: () => { this._ringsSet = false; this.setState({ phase: 'play', q: 0, picked: null, answers: [] }) },
+      total: t, qNum: q + 1, qLevel: cur.lv, prompt: cur.prompt, passage: cur.passage || '', hasPassage: !!cur.passage,
+      skGrammar: cur.sk === 'g', skVocab: cur.sk === 'v', skReading: cur.sk === 'r',
+      opts: cur.opts.map((label, i) => ({
+        label, key: keys[i], pick: () => this.pick(i),
+        idle: !ans, right: ans && i === cur.a, wrong: ans && i === picked && i !== cur.a, dim: ans && i !== cur.a && i !== picked
+      })),
+      answered: ans, verdict: ans && picked === cur.a ? '¡Correcto!' : 'Not quite.', why: cur.why,
+      nextLabel: q >= t - 1 ? 'See my level' : 'Next', next: () => this.next(),
+      level: lv[0], levelName: lv[1], levelDesc: lv[2], nextStep: lv[3],
+      gText: s.g[0] + ' of ' + s.g[1] + ' correct', vText: s.v[0] + ' of ' + s.v[1] + ' correct', rText: s.r[0] + ' of ' + s.r[1] + ' correct'
+    };
+    for (let i = 0; i < 5; i++) v['you' + i] = phase === 'done' && li === i;
+    return v;
+  }
+}
+</script>
+</body>
+</html>

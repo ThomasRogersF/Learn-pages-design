@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Slang dictionary hub" description="Calm-direction dictionary index: hero with live search, country filter chips, results grid of entry cards with audio, how-to-use strip, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:inherit;text-decoration:none">Listening</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<section style="background:#FDEBDF"><div style="max-width:1080px;margin:0 auto;padding:48px 28px 40px;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center">
+<div style="flex:1 1 420px;min-width:0">
+<span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#A44A1D">Slang dictionary · {{ total }} entries</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,6vw,58px);line-height:1;letter-spacing:-.035em;margin:12px 0 0">The Spanish slang dictionary</h1>
+<p style="font-size:18px;line-height:1.55;color:#4A5A6E;margin:12px 0 0;max-width:50ch">What it really means, how it sounds, where it's used, and whether it's safe to say to your suegra.</p>
+<div style="margin-top:22px;display:flex;align-items:center;gap:10px;background:#FFFFFF;border-radius:999px;padding:6px 6px 6px 20px;box-shadow:0 10px 30px -16px rgba(164,74,29,.4);max-width:520px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E7A89" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input value="{{ q }}" onChange="{{ onQ }}" placeholder="Search a word: chela, guay, pola…" aria-label="Search slang" style="flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:16px;background:transparent;padding:10px 0">
+</div>
+</div>
+<img src="../../assets/learn/characters/chalkboard.png" alt="" style="flex:0 0 220px;width:220px;height:auto;margin:0 auto">
+</div></section>
+<main style="max-width:1080px;margin:0 auto;padding:32px 28px 88px">
+<div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+<sc-for list="{{ countries }}" as="c" hint-placeholder-count="6">
+<sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ c.go }}" style="flex:none;appearance:none;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:10px 16px;border-radius:999px;border:0;background:#1B2B40;color:#FFFFFF">{{ c.label }}</button></sc-if>
+<sc-if value="{{ c.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ c.go }}" style="flex:none;appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;border:1px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E" style-hover="border-color:#5BB8AE">{{ c.label }}</button></sc-if>
+</sc-for>
+</div>
+<p style="margin:18px 0 0;font-size:14px;font-weight:700;color:#6E7A89">{{ countLabel }}</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px">
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="9">
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:20px;display:grid;gap:6px" style-hover="border-color:#5BB8AE;box-shadow:0 14px 30px -20px rgba(27,43,64,.3)">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b style="font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.02em">{{ r.w }}</b><button onClick="{{ say }}" data-say="{{ r.w }}" aria-label="Play" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button></div>
+<span style="font-size:15px;color:#4A5A6E">{{ r.m }}</span>
+<span style="justify-self:start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4EFE7;color:#4A5A6E">{{ r.c }}</span>
+</a>
+</sc-for>
+</div>
+<sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}"><div style="margin-top:12px;display:flex;align-items:center;gap:16px;background:#FFFFFF;border-radius:24px;padding:22px"><img src="../../assets/learn/characters/curly-thinking.png" alt="" style="width:80px;height:auto"><div><b style="font-family:'Bricolage Grotesque';font-size:20px">No entry yet for "{{ q }}"</b><p style="margin:4px 0 0;font-size:15px;color:#4A5A6E">Ask a teacher in your free class. We add new words every week.</p></div></div></sc-if>
+<section style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div style="background:#E3F3F0;border-radius:22px;padding:20px"><img src="../../assets/learn/icons/enye-cards.png" alt="" style="width:44px;height:auto"><b style="display:block;font-family:'Bricolage Grotesque';font-size:19px;margin-top:8px">Real meaning</b><p style="margin:4px 0 0;font-size:15px;color:#4A5A6E">Not the dictionary one.</p></div>
+<div style="background:#FFF4DA;border-radius:22px;padding:20px"><img src="../../assets/learn/icons/book-speech.png" alt="" style="width:44px;height:auto"><b style="display:block;font-family:'Bricolage Grotesque';font-size:19px;margin-top:8px">Native audio</b><p style="margin:4px 0 0;font-size:15px;color:#4A5A6E">Recorded by our teachers.</p></div>
+<div style="background:#EFEAF7;border-radius:22px;padding:20px"><img src="../../assets/learn/icons/globe-pin.png" alt="" style="width:44px;height:auto"><b style="display:block;font-family:'Bricolage Grotesque';font-size:19px;margin-top:8px">Where it's used</b><p style="margin:4px 0 0;font-size:15px;color:#4A5A6E">And where it'll confuse people.</p></div>
+</section>
+<section style="margin-top:56px;max-width:760px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Which country's slang should I learn?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">The one you'll visit or talk to most. Mexico has the most speakers.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Can I suggest a word?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Yes. Our teachers review every suggestion.</p></details>
+</div>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Slang</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { q: '', c: 'All' };
+  E = [['chela','a beer','Mexico'],['güey','dude','Mexico'],['chido','cool','Mexico'],['neta','for real','Mexico'],['guay','cool','Spain'],['tío','guy, dude','Spain'],['vale','OK','Spain'],['birra','a beer','Argentina'],['che','hey, mate','Argentina'],['boludo','idiot / buddy','Argentina'],['parcero','friend','Colombia'],['pola','a beer','Colombia'],['bacano','awesome','Colombia'],['pura vida','all good','Costa Rica'],['mae','dude','Costa Rica'],['chévere','great','Venezuela']];
+  say(e){
+    e.preventDefault(); e.stopPropagation();
+    const b = e.currentTarget, t = b.getAttribute('data-say');
+    if (b.animate) b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 300 });
+    if (!window.speechSynthesis || !t) return;
+    speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.speak(u);
+  }
+  renderVals(){
+    const { q, c } = this.state, ql = q.trim().toLowerCase();
+    const res = this.E.filter(([w, m, k]) => (c === 'All' || k === c) && (!ql || w.includes(ql) || m.includes(ql)));
+    return {
+      q, onQ: e => this.setState({ q: e.target.value }), say: e => this.say(e), total: this.E.length,
+      countries: ['All', 'Mexico', 'Spain', 'Argentina', 'Colombia', 'Costa Rica', 'Venezuela'].map(label => ({ label, on: c === label, off: c !== label, go: () => this.setState({ c: label }) })),
+      results: res.map(([w, m, k]) => ({ w, m, c: k })), empty: res.length === 0,
+      countLabel: res.length + (res.length === 1 ? ' entry' : ' entries') + (c === 'All' ? '' : ' from ' + c)
+    };
+  }
+}
+</script>
+</body>
+</html>

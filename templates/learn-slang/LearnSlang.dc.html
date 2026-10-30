@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Slang entry" description="Calm-direction slang dictionary entry (chela): hero word card with audio, senses with examples, formality meter, regional variants, sound-local check, related slang" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}</style></helmet>
+<div ref="{{ rootRef }}" style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="position:sticky;top:0;z-index:10;background:rgba(251,247,241,.95);border-bottom:1px solid #EDE5D8">
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px">
+<img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto">
+<nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden">
+<a href="#" style="color:inherit;text-decoration:none">Grammar</a>
+<a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a>
+<a href="#" style="color:inherit;text-decoration:none">Listening</a>
+<a href="#" style="color:inherit;text-decoration:none">Quizzes</a>
+</nav>
+<a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a>
+</div>
+<div style="height:3px"><div ref="{{ progRef }}" style="height:3px;width:0;background:#5BB8AE;border-radius:0 3px 3px 0"></div></div>
+</header>
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;display:flex;gap:56px;align-items:flex-start;justify-content:center">
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<aside style="flex:0 0 190px;position:sticky;top:92px;margin-top:110px;display:grid;gap:2px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6E7A89;margin:0 0 8px 12px">On this page</span>
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="7"><a href="{{ t.href }}" style="font-size:14px;font-weight:600;color:#4A5A6E;text-decoration:none;padding:7px 12px;border-left:2px solid #E6DED0" style-hover="color:#1B2B40;border-left-color:#5BB8AE">{{ t.label }}</a></sc-for>
+</aside>
+</sc-if>
+<main style="flex:1 1 auto;max-width:760px;min-width:0;padding:36px 0 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600;flex-wrap:wrap"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Slang dictionary</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Mexico</a><span>/</span><span style="color:#1B2B40">chela</span></nav>
+<section id="s-word" style="scroll-margin-top:90px;margin-top:22px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 28px;background:#FFFFFF;border-radius:32px;padding:32px 32px 0;overflow:hidden;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div style="flex:1 1 320px;min-width:0;padding-bottom:32px">
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#FDEBDF;color:#A44A1D">Mexican slang</span>
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#E3F3F0;color:#2D6E67">Safe with anyone</span>
+</div>
+<div style="display:flex;align-items:center;gap:18px;margin-top:16px">
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(64px,11vw,96px);line-height:.95;letter-spacing:-.04em;margin:0;color:#1B2B40">chela</h1>
+<button onClick="{{ say }}" data-say="chela" aria-label="Play chela" style="flex:none;width:60px;height:60px;border-radius:999px;border:0;cursor:pointer;background:#E8672E;color:#FFFFFF;display:grid;place-items:center;box-shadow:0 5px 0 #B84E1F" style-active="transform:translateY(4px);box-shadow:0 1px 0 #B84E1F"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></button>
+</div>
+<p style="margin:12px 0 0;font-size:17px;color:#4A5A6E"><b style="color:#1B2B40">CHEH-lah</b> · noun, feminine · informal</p>
+<p style="margin:18px 0 0;font-family:'Bricolage Grotesque';font-weight:600;font-size:26px;letter-spacing:-.015em;line-height:1.2">means <span style="color:#E8672E">a beer</span></p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+<span style="font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:#F4EFE7">Mexico</span>
+<span style="font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:#F4EFE7">Guatemala</span>
+<span style="font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:#F4EFE7">Honduras</span>
+<span style="font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:#F4EFE7">El Salvador</span>
+</div>
+</div>
+<img src="../../assets/learn/characters/chalkboard.png" alt="" style="flex:0 0 200px;width:200px;height:auto;display:block;margin:0 auto">
+</section>
+<div style="display:flex;align-items:center;gap:12px;margin-top:20px">
+<img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:50% 12%;background:#E3F3F0">
+<span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Gabriela L.</b> · Native teacher, Guadalajara · Updated Jun 9, 2026</span>
+</div>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;overflow-x:auto;margin-top:20px;padding:10px 0">
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="7"><a href="{{ t.href }}" style="flex:none;font-size:13px;font-weight:700;color:#1B2B40;text-decoration:none;padding:8px 14px;border-radius:999px;background:#FFFFFF;border:1px solid #EDE5D8">{{ t.label }}</a></sc-for>
+</div>
+</sc-if>
+<section id="s-short" style="scroll-margin-top:90px;margin-top:32px;display:flex;gap:16px;align-items:flex-start;background:#E3F3F0;border-radius:24px;padding:24px 26px">
+<img src="../../assets/learn/icons/bulb-check.png" alt="" style="flex:none;width:48px;height:48px;object-fit:contain">
+<div><span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">The short version</span><p style="margin:6px 0 0;font-size:17px;line-height:1.6"><b>Chela</b> is how Mexicans say <b>beer</b> in casual settings. The plural is even more common: <i>¿Vamos por unas chelas?</i></p></div>
+</section>
+<section id="s-uses" style="scroll-margin-top:90px;margin-top:64px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Three ways you'll hear it</h2>
+<div style="display:grid;gap:14px;margin-top:22px">
+<div style="display:flex;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px 24px">
+<b style="flex:none;width:36px;height:36px;border-radius:12px;background:#E3F3F0;color:#2D6E67;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-size:18px">1</b>
+<div style="flex:1;min-width:0"><b style="font-family:'Bricolage Grotesque';font-size:21px">Inviting friends out</b><p style="margin:4px 0 0;font-size:15px;line-height:1.55;color:#4A5A6E">People order rounds, not single beers, so you'll mostly hear the plural.</p>
+<div style="display:flex;gap:12px;align-items:center;background:#F4FAF8;border-radius:14px;padding:10px 14px;margin-top:12px"><button onClick="{{ say }}" data-say="¿Vamos por unas chelas?" aria-label="Play example" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#2D9C8F;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div><div style="font-size:16px;font-weight:600">¿Vamos por unas chelas?</div><div style="font-size:14px;color:#6E7A89">Wanna grab some beers?</div></div></div>
+</div>
+</div>
+<div style="display:flex;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px 24px">
+<b style="flex:none;width:36px;height:36px;border-radius:12px;background:#FDEBDF;color:#A44A1D;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-size:18px">2</b>
+<div style="flex:1;min-width:0"><b style="font-family:'Bricolage Grotesque';font-size:21px">Ordering at a bar</b><p style="margin:4px 0 0;font-size:15px;line-height:1.55;color:#4A5A6E">Swap it for <i>cerveza</i> and you'll sound instantly more local.</p>
+<div style="display:flex;gap:12px;align-items:center;background:#FEF5EF;border-radius:14px;padding:10px 14px;margin-top:12px"><button onClick="{{ say }}" data-say="Una chela bien fría, por favor." aria-label="Play example" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div><div style="font-size:16px;font-weight:600">Una chela bien fría, por favor.</div><div style="font-size:14px;color:#6E7A89">A nice cold beer, please.</div></div></div>
+</div>
+</div>
+<div style="display:flex;gap:18px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px 24px">
+<b style="flex:none;width:36px;height:36px;border-radius:12px;background:#EFEAF7;color:#5B4B85;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-size:18px">3</b>
+<div style="flex:1;min-width:0"><b style="font-family:'Bricolage Grotesque';font-size:21px">Buying for home</b><p style="margin:4px 0 0;font-size:15px;line-height:1.55;color:#4A5A6E">Works for store-bought beer too, not just on tap.</p>
+<div style="display:flex;gap:12px;align-items:center;background:#F6F3FB;border-radius:14px;padding:10px 14px;margin-top:12px"><button onClick="{{ say }}" data-say="Voy a comprar unas chelas para el partido." aria-label="Play example" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#7B68B0;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div><div style="font-size:16px;font-weight:600">Voy a comprar unas chelas para el partido.</div><div style="font-size:14px;color:#6E7A89">I'm gonna grab some beers for the game.</div></div></div>
+</div>
+</div>
+</div>
+</section>
+<section id="s-meter" style="scroll-margin-top:90px;margin-top:56px;background:#FFF4DA;border-radius:28px;padding:28px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A5C17">How casual is it?</span>
+<h3 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:24px;margin:6px 0 0;letter-spacing:-.015em">Casual, but never rude</h3>
+<div style="position:relative;margin-top:26px;height:14px;border-radius:999px;background:#FBE6B5">
+<div style="position:absolute;inset:0;display:flex;justify-content:space-between;padding:0 4px;align-items:center"><span style="width:6px;height:6px;border-radius:999px;background:#E7CC8F"></span><span style="width:6px;height:6px;border-radius:999px;background:#E7CC8F"></span><span style="width:6px;height:6px;border-radius:999px;background:#E7CC8F"></span><span style="width:6px;height:6px;border-radius:999px;background:#E7CC8F"></span><span style="width:6px;height:6px;border-radius:999px;background:#E7CC8F"></span></div>
+<div ref="{{ pinRef }}" style="position:absolute;top:50%;left:62%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:999px;background:#E8672E;border:4px solid #FFFFFF;box-shadow:0 4px 12px rgba(27,43,64,.25)"></div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:12px;font-size:13px;font-weight:700;color:#7A5C17"><span>Formal</span><span>Neutral</span><span>Casual</span><span>Street</span></div>
+<p style="margin:16px 0 0;font-size:15px;line-height:1.6">Fine with friends, coworkers and family in any relaxed setting. Use <i>cerveza</i> in writing for work.</p>
+</section>
+<section style="margin-top:56px;display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;background:#FFFFFF;border-radius:28px;padding:28px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="Gabriela L., SpanishVIP teacher" style="flex:0 0 72px;width:72px;height:72px;border-radius:22px;object-fit:cover;object-position:50% 12%;background:#E3F3F0">
+<div style="flex:1 1 300px;min-width:0">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">What locals actually say · Gabriela</span>
+<p style="font-family:'Bricolage Grotesque';font-weight:600;font-size:21px;line-height:1.4;letter-spacing:-.01em;margin:8px 0 0;text-wrap:pretty">"Nobody orders <span style="color:#A44A1D">una cerveza, por favor</span> in a Mexican bar. What you'll hear every night is <span style="color:#2D6E67">Échame una chela</span>: literally, throw me a beer."</p>
+<button onClick="{{ say }}" data-say="Échame una chela." style="appearance:none;cursor:pointer;margin-top:14px;display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:800;font-size:14px;color:#2D6E67;background:#E3F3F0;border:0;border-radius:999px;padding:8px 14px"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg>Hear it</button>
+</div>
+</section>
+<section id="s-regions" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/globe-pin.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">"Beer" around the Spanish world</h2></div>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0;max-width:60ch">Slang doesn't travel. Ask for a <i>chela</i> in Buenos Aires and you'll get blank looks.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:22px">
+<div style="background:#FDEBDF;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#A44A1D">MEXICO</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">chela · cheve</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">ARGENTINA</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">birra</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">SPAIN</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">caña · birra</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">COLOMBIA</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">pola</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">PERU · CHILE</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">chela</b></div>
+<div style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#6E7A89">VENEZUELA</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:24px;margin-top:4px">birra · fría</b></div>
+</div>
+<figure style="margin:28px 0 0"><div style="border-radius:28px;overflow:hidden;aspect-ratio:16/7;background:#EFEAF7"><img src="../../assets/learn/photo-cafe-medellin.png" alt="Café table in Latin America" style="width:100%;height:100%;object-fit:cover;display:block"></div><figcaption style="margin-top:10px;font-size:14px;color:#6E7A89">In Colombia, ask for <b style="color:#A44A1D">una pola</b> and you'll fit right in.</figcaption></figure>
+</section>
+<section id="s-check" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/enye-cards.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Sound like a local</h2></div>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0">Pick what a local would actually say.</p>
+<div style="margin-top:20px;background:#DDF0EC;border-radius:28px;padding:clamp(18px,4vw,28px);display:grid;gap:14px">
+<sc-for list="{{ checks }}" as="c" hint-placeholder-count="3">
+<div ref="{{ c.ref }}" style="background:#FFFFFF;border-radius:20px;padding:20px 22px">
+<span style="font-size:12px;font-weight:800;letter-spacing:.1em;color:#2D6E67">{{ c.place }}</span>
+<b style="display:block;margin-top:4px;font-family:'Bricolage Grotesque';font-size:20px;letter-spacing:-.01em">{{ c.q }}</b>
+<div style="display:grid;gap:10px;margin-top:14px">
+<sc-for list="{{ c.opts }}" as="o" hint-placeholder-count="3">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;font-size:16px;font-weight:600;padding:12px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #E6DED0;box-shadow:0 3px 0 #E6DED0;color:#1B2B40" style-hover="border-color:#5BB8AE;box-shadow:0 3px 0 #5BB8AE" style-active="transform:translateY(3px);box-shadow:0 0 0 #5BB8AE">{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:12px 16px;border-radius:14px;background:#E3F3F0;border:2px solid #2D9C8F;box-shadow:0 3px 0 #2D9C8F;color:#1F4F4A">✓ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:12px 16px;border-radius:14px;background:#FFF1EA;border:2px solid #E8672E;box-shadow:0 3px 0 #E8672E;color:#A44A1D">✕ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:600;padding:12px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #EFE9DF;color:#6E7A89">{{ o.label }}</span></sc-if>
+</sc-for>
+</div>
+<sc-if value="{{ c.done }}" hint-placeholder-val="{{ false }}"><p style="margin:12px 0 0;font-size:15px;color:#4A5A6E">{{ c.why }}</p></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+<div ref="{{ scoreRef }}" style="display:flex;align-items:center;gap:16px;background:#FFF4DA;border-radius:20px;padding:16px 20px">
+<img src="../../assets/learn/icons/star.png" alt="" style="flex:none;width:52px;height:52px;object-fit:contain">
+<div style="flex:1;min-width:0"><b style="font-family:'Bricolage Grotesque';font-size:22px">{{ scoreTitle }}</b><div style="font-size:15px;color:#4A5A6E">{{ scoreText }}</div></div>
+<button onClick="{{ resetChecks }}" style="appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;font-weight:800;font-size:14px;color:#7A5C17">Try again</button>
+</div>
+</sc-if>
+</div>
+</section>
+<section id="s-related" style="scroll-margin-top:90px;margin-top:64px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">More Mexican slang</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px">
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">güey</b> <span style="color:#6E7A89">· dude</span></a>
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">neta</b> <span style="color:#6E7A89">· for real</span></a>
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">chido</b> <span style="color:#6E7A89">· cool</span></a>
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">cruda</b> <span style="color:#6E7A89">· hangover</span></a>
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">órale</b> <span style="color:#6E7A89">· OK, wow</span></a>
+<a href="#" style="text-decoration:none;color:#1B2B40;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:10px 18px;font-size:15px" style-hover="border-color:#5BB8AE"><b style="font-family:'Bricolage Grotesque';font-size:17px">padre</b> <span style="color:#6E7A89">· great</span></a>
+</div>
+</section>
+<section id="s-faq" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/question-bubbles.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Questions learners ask</h2></div>
+<div style="display:grid;gap:10px;margin-top:22px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is chela rude?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">No. It's casual but respectable. Safe with anyone in an informal setting.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Chela or cheve?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Same meaning. <i>Chela</i> is used everywhere in Mexico; <i>cheve</i> is more common in the north.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Can I use it in writing?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">In texts and social posts, yes. In work emails, stick with <i>cerveza</i>.</p></details>
+</div>
+</section>
+<section id="s-next" style="scroll-margin-top:90px;margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<a href="#" style="text-decoration:none;color:inherit;background:#FFFFFF;border-radius:24px;overflow:hidden;border:1px solid #EDE5D8"><div style="aspect-ratio:16/8;background:#EFEAF7;overflow:hidden"><img src="../../assets/learn/photo-market-fruit.png" alt="Market fruit stand" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#5B4B85">LISTEN · A1</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">Ana &amp; Luis go to the mercado</b><span style="font-size:14px;color:#4A5A6E">Real Mexican Spanish, slowed down.</span></div></a>
+<div style="position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:24px;padding:24px 120px 24px 24px;display:grid;align-content:space-between;gap:16px"><img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:-6px;bottom:-14px;width:130px;height:auto;pointer-events:none"><div style="position:relative"><b style="font-family:'Bricolage Grotesque';font-size:22px">Order your next chela like a local</b><p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#C9D2DD">Practice live with a teacher from Mexico.</p></div><a href="#" style="position:relative;justify-self:start;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 20px">Try a free class</a></div>
+</section>
+</main>
+</div>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6">
+<div style="max-width:1160px;margin:0 auto;padding:44px 28px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px">
+<div style="display:grid;gap:12px;align-content:start"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:28px;width:auto;justify-self:start"><span style="font-size:14px;line-height:1.5;color:#4A5A6E">Free Spanish lessons from native teachers.</span></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">LEARN</b><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Slang</a><a href="#" style="color:#1B2B40;text-decoration:none">Listening</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">PRACTICE</b><a href="#" style="color:#1B2B40;text-decoration:none">Level test</a><a href="#" style="color:#1B2B40;text-decoration:none">Verb conjugator</a><a href="#" style="color:#1B2B40;text-decoration:none">Word of the day</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">SPANISHVIP</b><a href="#" style="color:#1B2B40;text-decoration:none">Live classes</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><a href="#" style="color:#1B2B40;text-decoration:none">Reviews</a></div>
+</div>
+<div style="max-width:1160px;margin:0 auto;padding:16px 28px 28px;border-top:1px dashed #DDD3C3;font-size:13px;color:#6E7A89">© 2026 SpanishVIP</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: true, picks: [null, null, null] };
+  CHECKS = [
+    { place: 'AT A BAR IN MEXICO CITY', q: 'You want two beers.', opts: ['Dos cervezas, por favor.', 'Échame dos chelas.', 'Dos birras, che.'], a: 1, why: '"Échame dos chelas" is what you\'ll hear at the bar. "Birra, che" is Argentine.' },
+    { place: 'TEXTING A FRIEND', q: 'Invite them out after work.', opts: ['¿Vamos por unas chelas?', '¿Deseas consumir cerveza?', '¿Tomamos unas polas?'], a: 0, why: '"Pola" is Colombian. The middle one sounds like a robot.' },
+    { place: 'IN BOGOTÁ', q: 'Your Colombian friend offers you a beer.', opts: ['¿Una chela?', '¿Una pola?', '¿Una caña?'], a: 1, why: 'In Colombia it\'s "pola." "Caña" is a small draft beer in Spain.' }
+  ];
+  _checkEls = [];
+  componentDidMount(){
+    this._onScroll = () => {
+      const r = this._root; if (!r || !this._prog) return;
+      const b = r.getBoundingClientRect(), h = window.innerHeight;
+      this._prog.style.width = (Math.min(1, Math.max(0, -b.top / Math.max(1, b.height - h))) * 100) + '%';
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.ResizeObserver && this._root) {
+      this._ro = new ResizeObserver(([e]) => this.setState({ wide: e.contentRect.width >= 1040 }));
+      this._ro.observe(this._root);
+    }
+    if (this._pin && window.IntersectionObserver) {
+      this._io = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting || !this._pin.animate) return;
+        this._pin.animate([{ left: '0%' }, { left: '70%' }, { left: '60%' }, { left: '62%' }], { duration: 1100, easing: 'cubic-bezier(.3,1,.5,1)' });
+        this._io.disconnect();
+      }, { threshold: .6 });
+      this._io.observe(this._pin);
+    }
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); this._ro && this._ro.disconnect(); this._io && this._io.disconnect(); window.speechSynthesis && speechSynthesis.cancel() }
+  say(e){
+    const btn = e.currentTarget, text = btn.getAttribute('data-say');
+    if (btn.animate) btn.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'cubic-bezier(.3,1.5,.5,1)' });
+    if (!window.speechSynthesis || !text) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.speak(u);
+  }
+  pick(ci, oi){
+    if (this.state.picks[ci] !== null) return;
+    const ok = this.CHECKS[ci].a === oi;
+    this.setState(s => { const p = s.picks.slice(); p[ci] = oi; return { picks: p } });
+    const el = this._checkEls[ci];
+    if (el && el.animate) el.animate(ok
+      ? [{ transform: 'scale(1)' }, { transform: 'scale(1.03)' }, { transform: 'scale(.99)' }, { transform: 'scale(1)' }]
+      : [{ transform: 'translateX(0)' }, { transform: 'translateX(-10px)' }, { transform: 'translateX(9px)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(0)' }],
+      { duration: ok ? 420 : 380, easing: 'cubic-bezier(.3,1.4,.5,1)' });
+  }
+  renderVals(){
+    const { wide, picks } = this.state;
+    const score = picks.filter((p, i) => p === this.CHECKS[i].a).length, allDone = picks.every(p => p !== null);
+    return {
+      rootRef: el => { this._root = el }, progRef: el => { this._prog = el }, pinRef: el => { this._pin = el },
+      wide, narrow: !wide, say: e => this.say(e),
+      toc: [
+        { href: '#s-word', label: 'The word' }, { href: '#s-uses', label: 'How to use it' }, { href: '#s-meter', label: 'How casual' },
+        { href: '#s-regions', label: 'Other countries' }, { href: '#s-check', label: 'Sound local' }, { href: '#s-related', label: 'More slang' }, { href: '#s-faq', label: 'FAQ' }
+      ],
+      checks: this.CHECKS.map((c, ci) => {
+        const p = picks[ci], done = p !== null;
+        return { place: c.place, q: c.q, why: c.why, done, ref: el => { this._checkEls[ci] = el },
+          opts: c.opts.map((label, oi) => ({ label, pick: () => this.pick(ci, oi),
+            idle: !done, right: done && oi === c.a, wrong: done && oi === p && oi !== c.a, dim: done && oi !== c.a && oi !== p })) };
+      }),
+      allDone, scoreTitle: score === 3 ? '¡Qué chido! 3 of 3' : score === 2 ? '¡Casi! 2 of 3' : score + ' of 3',
+      scoreText: score === 3 ? 'You sound like a local already.' : 'Check the country cards above, then try again.',
+      scoreRef: el => { if (el && el.animate) el.animate([{ transform: 'scale(.9)', opacity: 0 }, { transform: 'scale(1.02)', opacity: 1 }, { transform: 'scale(1)' }], { duration: 500, easing: 'cubic-bezier(.3,1.4,.5,1)' }) },
+      resetChecks: () => this.setState({ picks: [null, null, null] })
+    };
+  }
+}
+</script>
+</body>
+</html>

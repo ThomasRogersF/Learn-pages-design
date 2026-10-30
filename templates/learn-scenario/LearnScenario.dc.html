@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Real-life scenario" description="Calm-direction scenario playbook (ordering food): photo hero, 6-beat stepper with phrases + audio per beat, cheat sheet, role-play check, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:inherit;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Real life</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<main style="max-width:880px;margin:0 auto;padding:36px 28px 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600;flex-wrap:wrap"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Real-life scenarios</a><span>/</span><span style="color:#1B2B40">Ordering food</span></nav>
+<section style="margin-top:22px">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#FDEBDF;color:#A44A1D">Scenario · A2 · 6-minute playbook</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,5.6vw,54px);line-height:1.03;letter-spacing:-.03em;margin:16px 0 0;text-wrap:balance">How to order food in Spanish, like a local</h1>
+<p style="font-size:19px;line-height:1.55;color:#4A5A6E;margin:14px 0 0;max-width:58ch;text-wrap:pretty">Every restaurant follows the same six beats, from a taquería in Mexico City to a tapas bar in Madrid. Learn the beats, not a phrasebook.</p>
+<div style="margin-top:26px;border-radius:32px;overflow:hidden;aspect-ratio:16/8;background:#EFEAF7"><img src="../../assets/learn/photo-cafe-medellin.png" alt="Ordering at a café in Medellín" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">The six beats</h2>
+<div style="display:flex;gap:8px;overflow-x:auto;margin-top:20px;padding-bottom:4px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+<sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ s.go }}" style="flex:none;appearance:none;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:10px 16px;border-radius:999px;border:0;background:#1B2B40;color:#FFFFFF">{{ s.n }} · {{ s.title }}</button></sc-if>
+<sc-if value="{{ s.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ s.go }}" style="flex:none;appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;border:1px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E" style-hover="border-color:#5BB8AE">{{ s.n }} · {{ s.title }}</button></sc-if>
+</sc-for>
+</div>
+<div ref="{{ beatRef }}" style="margin-top:16px;background:#FFFFFF;border-radius:28px;padding:28px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div style="display:flex;align-items:center;gap:14px"><b style="flex:none;width:44px;height:44px;border-radius:14px;background:#FDEBDF;color:#A44A1D;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-size:22px">{{ cur.n }}</b><div><b style="font-family:'Bricolage Grotesque';font-size:24px;letter-spacing:-.015em">{{ cur.title }}</b><div style="font-size:15px;color:#4A5A6E">{{ cur.tip }}</div></div></div>
+<div style="display:grid;gap:10px;margin-top:18px">
+<sc-for list="{{ cur.lines }}" as="l" hint-placeholder-count="3">
+<div style="display:flex;gap:12px;align-items:center;background:#FBF7F1;border-radius:16px;padding:12px 16px"><button onClick="{{ say }}" data-say="{{ l.es }}" aria-label="Play" style="flex:none;width:36px;height:36px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button><div style="min-width:0"><div style="font-size:17px;font-weight:700">{{ l.es }}</div><div style="font-size:14px;color:#6E7A89">{{ l.en }}</div></div></div>
+</sc-for>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:20px"><button onClick="{{ prev }}" style="appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;font-weight:800;font-size:14px;color:#6E7A89">← Back</button><button onClick="{{ next }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:800;font-size:15px;color:#FFFFFF;background:#2D9C8F;border:0;border-radius:999px;padding:11px 20px;box-shadow:0 4px 0 #1F7A6F" style-active="transform:translateY(4px);box-shadow:0 0 0 #1F7A6F">Next beat →</button></div>
+</div>
+</section>
+<section style="margin-top:56px;display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;background:#FFF4DA;border-radius:28px;padding:28px">
+<img src="../../assets/learn/teachers/headshot-man-curly.png" alt="Mateo C., SpanishVIP teacher" style="flex:0 0 64px;width:64px;height:64px;border-radius:20px;object-fit:cover;object-position:50% 12%">
+<div style="flex:1 1 300px"><span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A5C17">Local tip · Mateo</span><p style="font-family:'Bricolage Grotesque';font-weight:600;font-size:20px;line-height:1.4;margin:8px 0 0">"In Mexico, the check never comes on its own. You have to ask: <span style="color:#A44A1D">¿Me trae la cuenta?</span> Waiting politely just means waiting."</p></div>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Cheat sheet</h2>
+<div style="margin-top:20px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;overflow:hidden">
+<sc-for list="{{ sheet }}" as="r" hint-placeholder-count="6"><div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;padding:14px 22px;border-top:1px solid #F1EBE1;font-size:16px"><b>{{ r.es }}</b><span style="color:#4A5A6E">{{ r.en }}</span></div></sc-for>
+</div>
+</section>
+<section style="margin-top:56px;background:#DDF0EC;border-radius:28px;padding:clamp(20px,4vw,30px)">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Role-play</span>
+<h3 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:24px;margin:6px 0 0">The waiter says <i>"¿Qué le traigo?"</i> You answer…</h3>
+<div style="display:grid;gap:10px;margin-top:16px">
+<sc-for list="{{ opts }}" as="o" hint-placeholder-count="3">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;font-size:16px;font-weight:600;padding:13px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #E6DED0;box-shadow:0 3px 0 #E6DED0;color:#1B2B40" style-hover="border-color:#5BB8AE;box-shadow:0 3px 0 #5BB8AE">{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:13px 16px;border-radius:14px;background:#E3F3F0;border:2px solid #2D9C8F;color:#1F4F4A">✓ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:700;padding:13px 16px;border-radius:14px;background:#FFF1EA;border:2px solid #E8672E;color:#A44A1D">✕ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><span style="font-size:16px;font-weight:600;padding:13px 16px;border-radius:14px;background:#FFFFFF;border:2px solid #EFE9DF;color:#6E7A89">{{ o.label }}</span></sc-if>
+</sc-for>
+</div>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;color:#1F4F4A"><b>Me trae…</b> (could you bring me) is polite and natural everywhere.</p></sc-if>
+</section>
+<section style="margin-top:56px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is "quiero" rude?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Not with <i>por favor</i>, but <i>me trae</i> or <i>quisiera</i> sounds softer.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">How much should I tip?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Around 10–15% in Mexico. In Spain, rounding up is enough.</p></details>
+</div>
+</section>
+<section style="margin-top:56px;position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:32px 190px 32px 32px">
+<img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:10px;bottom:-12px;width:170px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.015em">Rehearse this exact script with a teacher</b>
+<p style="position:relative;margin:8px 0 18px;font-size:16px;color:#C9D2DD">Walk into the restaurant ready. First class is free.</p>
+<a href="#" style="position:relative;display:inline-block;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Book my free class</a>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Real life</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0, pick: null };
+  STEPS = [
+    { title: 'Get seated', tip: 'Say how many, then wait to be shown.', lines: [['Mesa para dos, por favor.', 'Table for two, please.'], ['¿Tienen mesa afuera?', 'Do you have a table outside?']] },
+    { title: 'Ask for the menu', tip: 'Greet first. Always.', lines: [['Buenas tardes.', 'Good afternoon.'], ['¿Me trae la carta?', 'Could you bring the menu?']] },
+    { title: 'Order food', tip: 'Me trae… or Quisiera… sound natural and polite.', lines: [['Me trae los tacos al pastor.', "I'll have the tacos al pastor."], ['¿Qué me recomienda?', 'What do you recommend?'], ['Quisiera la sopa del día.', "I'd like the soup of the day."]] },
+    { title: 'Order drinks', tip: 'Drinks usually come first.', lines: [['Un agua natural, por favor.', 'A still water, please.'], ['¿Tienen agua de jamaica?', 'Do you have hibiscus water?']] },
+    { title: 'Allergies', tip: 'Say it early, say it clearly.', lines: [['Soy alérgico a los mariscos.', "I'm allergic to seafood."], ['¿Lleva gluten?', 'Does it have gluten?']] },
+    { title: 'The check', tip: 'You have to ask; it won\'t just come.', lines: [['¿Me trae la cuenta?', 'Could I have the check?'], ['¿Aceptan tarjeta?', 'Do you take cards?']] }
+  ];
+  say(e){
+    const b = e.currentTarget, t = b.getAttribute('data-say');
+    if (b.animate) b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 300 });
+    if (!window.speechSynthesis || !t) return;
+    speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.speak(u);
+  }
+  go(i){
+    const n = (i + 6) % 6; this.setState({ step: n });
+    if (this._beat && this._beat.animate) this._beat.animate([{ opacity: .3, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 280, easing: 'ease-out' });
+  }
+  renderVals(){
+    const { step, pick } = this.state, s = this.STEPS[step], done = pick !== null;
+    const opts = ['Me trae una ensalada, por favor.', 'Yo soy una ensalada.', 'Dame ensalada.'];
+    return {
+      say: e => this.say(e), beatRef: el => { this._beat = el },
+      steps: this.STEPS.map((x, i) => ({ n: i + 1, title: x.title, on: i === step, off: i !== step, go: () => this.go(i) })),
+      cur: { n: step + 1, title: s.title, tip: s.tip, lines: s.lines.map(([es, en]) => ({ es, en })) },
+      prev: () => this.go(step - 1), next: () => this.go(step + 1),
+      sheet: [['Mesa para dos', 'Table for two'], ['La carta', 'The menu'], ['Me trae…', 'Could you bring me…'], ['Sin cebolla', 'No onion'], ['Para llevar', 'To go'], ['La cuenta', 'The check']].map(([es, en]) => ({ es, en })),
+      done, opts: opts.map((label, i) => ({ label, pick: () => this.setState({ pick: i }), idle: !done, right: done && i === 0, wrong: done && i === pick && i !== 0, dim: done && i !== 0 && i !== pick }))
+    };
+  }
+}
+</script>
+</body>
+</html>

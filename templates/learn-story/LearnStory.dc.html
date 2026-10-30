@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Short story" description="Calm-direction graded reader (El mercado, A2): illustrated story with per-paragraph audio, tap-to-translate toggle, glossary chips, comprehension check, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:inherit;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Reading</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<main style="max-width:760px;margin:0 auto;padding:36px 28px 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600;flex-wrap:wrap"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Short stories (A2)</a><span>/</span><span style="color:#1B2B40">El mercado</span></nav>
+<section style="margin-top:22px;text-align:center">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#EFEAF7;color:#5B4B85">Short story · A2 · 4-minute read</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(44px,7vw,68px);line-height:1;letter-spacing:-.035em;margin:16px 0 0">El mercado</h1>
+<p style="font-size:18px;line-height:1.55;color:#4A5A6E;margin:12px auto 0;max-width:48ch">Ana takes Luis to her favorite market in Oaxaca. He wants mangos. She wants something else.</p>
+</section>
+<div style="margin-top:28px;border-radius:32px;overflow:hidden;aspect-ratio:16/9;background:#EFEAF7"><img src="../../assets/learn/photo-market-fruit.png" alt="Fruit stall at a Mexican market" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<div style="position:sticky;top:12px;z-index:5;margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 8px 24px -16px rgba(27,43,64,.3)">
+<span style="font-size:14px;font-weight:700;color:#4A5A6E">Show English</span>
+<div style="display:flex;gap:4px;background:#F4EFE7;border-radius:999px;padding:4px">
+<sc-if value="{{ showEn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ enOff }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">Off</button><button onClick="{{ enOn }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">On</button></sc-if>
+<sc-if value="{{ hideEn }}" hint-placeholder-val="{{ true }}"><button onClick="{{ enOff }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">Off</button><button onClick="{{ enOn }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">On</button></sc-if>
+</div>
+</div>
+<article style="margin-top:24px;display:grid;gap:14px">
+<sc-for list="{{ paras }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;gap:16px;align-items:flex-start;background:#FFFFFF;border-radius:24px;padding:22px 24px">
+<button onClick="{{ say }}" data-say="{{ p.es }}" aria-label="Play paragraph" style="flex:none;width:40px;height:40px;border-radius:999px;border:0;background:#7B68B0;color:#FFFFFF;cursor:pointer;display:grid;place-items:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button>
+<div style="min-width:0"><p style="margin:0;font-family:'Bricolage Grotesque';font-weight:600;font-size:21px;line-height:1.5;letter-spacing:-.005em">{{ p.es }}</p>
+<sc-if value="{{ showEn }}" hint-placeholder-val="{{ false }}"><p style="margin:8px 0 0;font-size:15px;line-height:1.55;color:#6E7A89">{{ p.en }}</p></sc-if></div>
+</div>
+</sc-for>
+</article>
+<section style="margin-top:40px;background:#FFF4DA;border-radius:28px;padding:26px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A5C17">Words from the story</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+<sc-for list="{{ gloss }}" as="g" hint-placeholder-count="8"><button onClick="{{ say }}" data-say="{{ g.es }}" style="appearance:none;cursor:pointer;font:inherit;background:#FFFFFF;border:0;border-radius:999px;padding:9px 16px;font-size:15px;color:#1B2B40"><b>{{ g.es }}</b> <span style="color:#6E7A89">· {{ g.en }}</span></button></sc-for>
+</div>
+</section>
+<section style="margin-top:56px;background:#DDF0EC;border-radius:28px;padding:clamp(20px,4vw,30px);display:grid;gap:14px">
+<div><span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Check your understanding</span><h3 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:24px;margin:4px 0 0">{{ score }} / 3 correct</h3></div>
+<sc-for list="{{ checks }}" as="c" hint-placeholder-count="3">
+<div style="background:#FFFFFF;border-radius:20px;padding:18px 20px">
+<b style="font-size:17px">{{ c.q }}</b>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+<sc-for list="{{ c.opts }}" as="o" hint-placeholder-count="3">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;font-size:15px;font-weight:600;padding:10px 16px;border-radius:999px;background:#FFFFFF;border:2px solid #E6DED0;color:#1B2B40" style-hover="border-color:#5BB8AE">{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:700;padding:10px 16px;border-radius:999px;background:#E3F3F0;border:2px solid #2D9C8F;color:#1F4F4A">✓ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:700;padding:10px 16px;border-radius:999px;background:#FFF1EA;border:2px solid #E8672E;color:#A44A1D">✕ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:600;padding:10px 16px;border-radius:999px;border:2px solid #EFE9DF;color:#6E7A89">{{ o.label }}</span></sc-if>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</section>
+<section style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+<a href="#" style="text-decoration:none;color:inherit;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#5B4B85">LISTEN · A1</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">Ana &amp; Luis go to the mercado</b><span style="font-size:14px;color:#4A5A6E">Hear the same scene as a conversation.</span></a>
+<a href="#" style="text-decoration:none;color:inherit;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:24px;padding:22px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#A44A1D">NEXT STORY · A2</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">El autobús</b><span style="font-size:14px;color:#4A5A6E">Luis gets lost in Guadalajara.</span></a>
+</section>
+<section style="margin-top:56px;position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:32px 190px 32px 32px">
+<img src="../../assets/learn/characters/glasses-book.png" alt="" style="position:absolute;right:10px;bottom:-12px;width:170px;height:auto;pointer-events:none">
+<b style="position:relative;font-family:'Bricolage Grotesque';font-size:26px;letter-spacing:-.015em">Read your next story with a teacher</b>
+<p style="position:relative;margin:8px 0 18px;font-size:16px;color:#C9D2DD">Talk about it out loud. That's where reading turns into speaking.</p>
+<a href="#" style="position:relative;display:inline-block;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Book my free class</a>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Reading</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { en: false, picks: [null, null, null] };
+  CHECKS = [
+    { q: '¿Dónde está el mercado?', opts: ['En Oaxaca', 'En Madrid', 'En Bogotá'], a: 0 },
+    { q: '¿Qué quiere comprar Luis?', opts: ['Tomates', 'Mangos', 'Pan'], a: 1 },
+    { q: '¿Qué compra Ana al final?', opts: ['Flores', 'Queso', 'Chocolate'], a: 2 }
+  ];
+  say(e){
+    const b = e.currentTarget, t = b.getAttribute('data-say');
+    if (b.animate) b.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.1)' }, { transform: 'scale(1)' }], { duration: 300 });
+    if (!window.speechSynthesis || !t) return;
+    speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'es-MX'; u.rate = .85; speechSynthesis.speak(u);
+  }
+  renderVals(){
+    const { en, picks } = this.state;
+    return {
+      say: e => this.say(e), showEn: en, hideEn: !en,
+      enOn: () => this.setState({ en: true }), enOff: () => this.setState({ en: false }),
+      paras: [
+        ['Es sábado por la mañana. Ana y Luis caminan al mercado de Oaxaca.', 'It\'s Saturday morning. Ana and Luis walk to the market in Oaxaca.'],
+        ['El mercado es grande y hay mucha gente. Huele a café y a tortillas.', 'The market is big and there are lots of people. It smells like coffee and tortillas.'],
+        ['—Quiero mangos —dice Luis—. ¿Cuánto cuestan?', '"I want mangos," says Luis. "How much are they?"'],
+        ['—Veinte pesos el kilo —responde la señora. Luis compra dos kilos.', '"Twenty pesos a kilo," the woman answers. Luis buys two kilos.'],
+        ['Ana no quiere fruta. Busca algo especial: chocolate de Oaxaca para su abuela.', 'Ana doesn\'t want fruit. She\'s looking for something special: Oaxacan chocolate for her grandmother.'],
+        ['Al final, los dos están contentos. Luis tiene sus mangos y Ana tiene su chocolate.', 'In the end, they\'re both happy. Luis has his mangos and Ana has her chocolate.']
+      ].map(([es, en]) => ({ es, en })),
+      gloss: [['el mercado', 'market'], ['la gente', 'people'], ['huele a', 'smells like'], ['¿cuánto cuestan?', 'how much?'], ['el kilo', 'kilo'], ['busca', 'looks for'], ['la abuela', 'grandma'], ['al final', 'in the end']].map(([es, en]) => ({ es, en })),
+      score: picks.filter((p, i) => p === this.CHECKS[i].a).length,
+      checks: this.CHECKS.map((c, ci) => {
+        const p = picks[ci], done = p !== null;
+        return { q: c.q, opts: c.opts.map((label, oi) => ({ label, idle: !done, right: done && oi === c.a, wrong: done && oi === p && oi !== c.a, dim: done && oi !== c.a && oi !== p,
+          pick: () => this.setState(s => { const n = s.picks.slice(); n[ci] = oi; return { picks: n } }) })) };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

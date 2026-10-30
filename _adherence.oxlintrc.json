@@ -1,0 +1,311 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "components/marketing/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Kumbh Sans))/i]",
+        "message": "Font not provided by the design system. Available: Kumbh Sans."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|href|onClick|children|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, href, onClick, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:md|lg)$/]",
+        "message": "<Button> size must be one of 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChatExchange'] > JSXAttribute > JSXIdentifier[name!=/^(?:messages|animate|style|key|ref|className|style|children)$/]",
+        "message": "<ChatExchange> doesn't accept that prop. Declared props: messages, animate, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FAQAccordion'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|style|key|ref|className|style|children)$/]",
+        "message": "<FAQAccordion> doesn't accept that prop. Declared props: items, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|children|style|key|ref|className|style|children)$/]",
+        "message": "<FeatureCard> doesn't accept that prop. Declared props: icon, title, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FinePrint'] > JSXAttribute > JSXIdentifier[name!=/^(?:align|children|style|key|ref|className|style|children)$/]",
+        "message": "<FinePrint> doesn't accept that prop. Declared props: align, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FinePrint'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:left|center)$/]",
+        "message": "<FinePrint> align must be one of 'left' | 'center'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Overline'] > JSXAttribute > JSXIdentifier[name!=/^(?:color|children|style|key|ref|className|style|children)$/]",
+        "message": "<Overline> doesn't accept that prop. Declared props: color, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PageFooter'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|disclaimer|style|key|ref|className|style|children)$/]",
+        "message": "<PageFooter> doesn't accept that prop. Declared props: logo, disclaimer, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PageHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|cta|href|style|key|ref|className|style|children)$/]",
+        "message": "<PageHeader> doesn't accept that prop. Declared props: logo, cta, href, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PriceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:price|period|normal|bullets|cta|href|finePrint|onCta|style|key|ref|className|style|children)$/]",
+        "message": "<PriceCard> doesn't accept that prop. Declared props: price, period, normal, bullets, cta, href, finePrint, onCta, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StickyCTABar'] > JSXAttribute > JSXIdentifier[name!=/^(?:cta|href|showAfter|style|key|ref|className|style|children)$/]",
+        "message": "<StickyCTABar> doesn't accept that prop. Declared props: cta, href, showAfter, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TestimonialCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:photo|name|detail|quote|style|key|ref|className|style|children)$/]",
+        "message": "<TestimonialCard> doesn't accept that prop. Declared props: photo, name, detail, quote, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TrustpilotBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:rating|count|style|key|ref|className|style|children)$/]",
+        "message": "<TrustpilotBadge> doesn't accept that prop. Declared props: rating, count, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='UrgencyBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|style|key|ref|className|style|children)$/]",
+        "message": "<UrgencyBadge> doesn't accept that prop. Declared props: children, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "ChatExchange": {
+        "replaces": []
+      },
+      "FAQAccordion": {
+        "replaces": []
+      },
+      "FeatureCard": {
+        "replaces": []
+      },
+      "FinePrint": {
+        "replaces": []
+      },
+      "Overline": {
+        "replaces": []
+      },
+      "PageFooter": {
+        "replaces": []
+      },
+      "PageHeader": {
+        "replaces": []
+      },
+      "PriceCard": {
+        "replaces": []
+      },
+      "StickyCTABar": {
+        "replaces": []
+      },
+      "TestimonialCard": {
+        "replaces": []
+      },
+      "TrustpilotBadge": {
+        "replaces": []
+      },
+      "UrgencyBadge": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-cta",
+      "--accent-cta-hover",
+      "--accent-link",
+      "--accent-link-hover",
+      "--accent-urgency",
+      "--border-dashed",
+      "--border-subtle",
+      "--brand-coral",
+      "--brand-cream",
+      "--brand-cyan",
+      "--brand-navy",
+      "--brand-orange",
+      "--brand-teal",
+      "--container-max",
+      "--container-narrow",
+      "--cream-deep",
+      "--focus-ring",
+      "--font-sans",
+      "--leading-body",
+      "--leading-display",
+      "--leading-heading",
+      "--navy-12",
+      "--navy-25",
+      "--navy-55",
+      "--navy-70",
+      "--orange-100",
+      "--orange-600",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-pad",
+      "--shadow-card",
+      "--shadow-cta",
+      "--shadow-sticky",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-card",
+      "--surface-card-warm",
+      "--surface-inverse",
+      "--surface-page",
+      "--teal-100",
+      "--teal-200",
+      "--teal-600",
+      "--teal-700",
+      "--text-base",
+      "--text-body",
+      "--text-display",
+      "--text-fine",
+      "--text-fineprint",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-heading",
+      "--text-lead",
+      "--text-muted",
+      "--text-on-accent",
+      "--text-overline",
+      "--text-small",
+      "--tracking-display",
+      "--tracking-overline",
+      "--weight-body",
+      "--weight-display",
+      "--weight-heading",
+      "--weight-semibold"
+    ],
+    "tokenKinds": {
+      "--font-sans": "font",
+      "--text-display": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-lead": "font",
+      "--text-base": "font",
+      "--text-small": "font",
+      "--text-fine": "font",
+      "--text-overline": "font",
+      "--weight-display": "font",
+      "--weight-heading": "font",
+      "--weight-semibold": "font",
+      "--weight-body": "font",
+      "--leading-display": "font",
+      "--leading-heading": "font",
+      "--leading-body": "font",
+      "--tracking-display": "font",
+      "--tracking-overline": "font",
+      "--brand-teal": "color",
+      "--brand-orange": "color",
+      "--brand-coral": "color",
+      "--brand-navy": "color",
+      "--brand-cyan": "color",
+      "--brand-cream": "color",
+      "--teal-100": "color",
+      "--teal-200": "color",
+      "--teal-600": "color",
+      "--teal-700": "color",
+      "--orange-100": "color",
+      "--orange-600": "color",
+      "--navy-70": "color",
+      "--navy-55": "color",
+      "--navy-25": "color",
+      "--navy-12": "color",
+      "--cream-deep": "color",
+      "--text-heading": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-fineprint": "font",
+      "--text-on-accent": "font",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-card-warm": "color",
+      "--surface-inverse": "color",
+      "--accent-cta": "color",
+      "--accent-cta-hover": "color",
+      "--accent-urgency": "color",
+      "--accent-link": "color",
+      "--accent-link-hover": "color",
+      "--border-subtle": "color",
+      "--border-dashed": "color",
+      "--focus-ring": "shadow",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--section-pad": "spacing",
+      "--container-max": "spacing",
+      "--container-narrow": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--shadow-card": "shadow",
+      "--shadow-cta": "shadow",
+      "--shadow-sticky": "shadow"
+    },
+    "fontFamilies": [
+      "Kumbh Sans"
+    ]
+  }
+}

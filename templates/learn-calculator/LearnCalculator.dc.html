@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Calculator tool" description="Calm-direction calculator (How long to learn Spanish): level pickers, hours slider, method choice, live result card with months + CEFR roadmap, how-it-works, FAQ" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}input[type=range]{accent-color:#2D9C8F}</style></helmet>
+<div style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="background:#FBF7F1;border-bottom:1px solid #EDE5D8"><div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto"><nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden"><a href="#" style="color:inherit;text-decoration:none">Grammar</a><a href="#" style="color:inherit;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Tools</a><a href="#" style="color:inherit;text-decoration:none">Quizzes</a></nav><a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a></div></header>
+<main style="max-width:1080px;margin:0 auto;padding:40px 28px 88px">
+<section style="display:flex;flex-wrap:wrap;gap:20px 36px;align-items:center">
+<div style="flex:1 1 420px;min-width:0">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#E3F3F0;color:#2D6E67">Free calculator · No sign-up</span>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,5.6vw,54px);line-height:1.03;letter-spacing:-.03em;margin:16px 0 0">How long does it take to learn Spanish?</h1>
+<p style="font-size:18px;line-height:1.55;color:#4A5A6E;margin:12px 0 0;max-width:52ch">An honest estimate based on FSI and Cervantes hour benchmarks. Move the controls, watch the answer change.</p>
+</div>
+<img src="../../assets/learn/icons/clock-calendar.png" alt="" style="flex:0 0 150px;width:150px;height:auto">
+</section>
+<section style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;align-items:start">
+<div style="background:#FFFFFF;border-radius:28px;padding:26px;display:grid;gap:26px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<div><b style="font-size:15px">I'm starting at</b><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">
+<sc-for list="{{ fromOpts }}" as="o" hint-placeholder-count="5"><sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.go }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:9px 14px;border-radius:12px;background:#1B2B40;color:#FFFFFF">{{ o.l }}</button></sc-if><sc-if value="{{ o.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.go }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:14px;padding:9px 14px;border-radius:12px;border:1px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E">{{ o.l }}</button></sc-if></sc-for>
+</div></div>
+<div><b style="font-size:15px">I want to reach</b><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">
+<sc-for list="{{ toOpts }}" as="o" hint-placeholder-count="5"><sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.go }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:9px 14px;border-radius:12px;background:#E8672E;color:#FFFFFF">{{ o.l }}</button></sc-if><sc-if value="{{ o.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.go }}" style="appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:14px;padding:9px 14px;border-radius:12px;border:1px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E">{{ o.l }}</button></sc-if></sc-for>
+</div></div>
+<div><div style="display:flex;justify-content:space-between"><b style="font-size:15px">Hours per week</b><b style="font-family:'Bricolage Grotesque';font-size:20px;color:#2D6E67">{{ hours }} h</b></div><input type="range" min="1" max="20" step="1" value="{{ hours }}" onChange="{{ onHours }}" aria-label="Hours per week" style="width:100%;margin-top:10px"></div>
+<div><b style="font-size:15px">Mostly with</b><div style="display:grid;gap:8px;margin-top:10px">
+<sc-for list="{{ methods }}" as="m" hint-placeholder-count="3"><sc-if value="{{ m.on }}" hint-placeholder-val="{{ false }}"><button onClick="{{ m.go }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;font-size:15px;font-weight:700;padding:12px 14px;border-radius:14px;border:2px solid #2D9C8F;background:#E3F3F0;color:#1F4F4A">{{ m.l }}</button></sc-if><sc-if value="{{ m.off }}" hint-placeholder-val="{{ true }}"><button onClick="{{ m.go }}" style="appearance:none;cursor:pointer;font:inherit;text-align:left;font-size:15px;font-weight:600;padding:12px 14px;border-radius:14px;border:2px solid #EDE5D8;background:#FFFFFF;color:#4A5A6E">{{ m.l }}</button></sc-if></sc-for>
+</div></div>
+</div>
+<div ref="{{ resRef }}" style="background:#1B2B40;color:#FFFFFF;border-radius:28px;padding:28px;position:relative;overflow:hidden">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9FDCD3">Your estimate</span>
+<div style="display:flex;align-items:baseline;gap:10px;margin-top:8px"><b style="font-family:'Bricolage Grotesque';font-size:76px;line-height:1;letter-spacing:-.04em">{{ months }}</b><span style="font-size:20px;font-weight:700">months</span></div>
+<p style="margin:6px 0 0;font-size:15px;color:#C9D2DD">{{ summary }}</p>
+<div style="display:grid;gap:8px;margin-top:22px">
+<sc-for list="{{ road }}" as="r" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:12px">
+<sc-if value="{{ r.inRange }}" hint-placeholder-val="{{ false }}"><b style="flex:none;width:40px;height:32px;border-radius:10px;background:#E8672E;display:grid;place-items:center;font-size:14px">{{ r.l }}</b></sc-if>
+<sc-if value="{{ r.outRange }}" hint-placeholder-val="{{ true }}"><b style="flex:none;width:40px;height:32px;border-radius:10px;background:#2A3D55;color:#8A9AAE;display:grid;place-items:center;font-size:14px">{{ r.l }}</b></sc-if>
+<span style="font-size:14px;color:#C9D2DD">{{ r.d }}</span>
+</div>
+</sc-for>
+</div>
+<a href="#" style="display:inline-block;margin-top:22px;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 22px">Cut it by 30% with live classes</a>
+</div>
+</section>
+<section style="margin-top:56px;max-width:760px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">How this works</h2>
+<div style="display:grid;gap:12px;margin-top:18px">
+<div style="display:flex;gap:14px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><b style="flex:none;width:32px;height:32px;border-radius:10px;background:#E3F3F0;color:#2D6E67;display:grid;place-items:center">1</b><span style="font-size:16px;line-height:1.5">Each CEFR level needs a known number of guided hours (A1 ≈ 100, B2 ≈ 600 in total).</span></div>
+<div style="display:flex;gap:14px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><b style="flex:none;width:32px;height:32px;border-radius:10px;background:#FDEBDF;color:#A44A1D;display:grid;place-items:center">2</b><span style="font-size:16px;line-height:1.5">Your method changes how efficient each hour is. Speaking practice counts most.</span></div>
+<div style="display:flex;gap:14px;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:18px 20px"><b style="flex:none;width:32px;height:32px;border-radius:10px;background:#EFEAF7;color:#5B4B85;display:grid;place-items:center">3</b><span style="font-size:16px;line-height:1.5">We divide by your weekly hours. Real life varies; treat it as a range.</span></div>
+</div>
+</section>
+<section style="margin-top:56px;max-width:760px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0">Questions learners ask</h2>
+<div style="display:grid;gap:10px;margin-top:20px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is Spanish hard for English speakers?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">It's one of the easiest. The FSI puts it in its fastest category.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">What level is "conversational"?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Around B1: you can handle most everyday situations without switching to English.</p></details>
+</div>
+</section>
+</main>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6"><div style="max-width:1160px;margin:0 auto;padding:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;font-size:14px"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:26px;width:auto"><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Tools</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><span style="margin-left:auto;color:#6E7A89">© 2026 SpanishVIP</span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { from: 0, to: 3, hours: 5, m: 2 };
+  L = ['Zero', 'A1', 'A2', 'B1', 'B2', 'C1'];
+  H = [0, 100, 200, 400, 600, 900];
+  D = ['', 'Introduce yourself, order food', 'Small talk, directions, shopping', 'Hold a real conversation', 'Work and debate in Spanish', 'Near-native nuance'];
+  M = [['Apps only', 1.5], ['Self-study + apps', 1.2], ['Live classes with a teacher', .85]];
+  componentDidUpdate(pp, ps){
+    if (this._r && this._r.animate && JSON.stringify(ps) !== JSON.stringify(this.state)) this._r.animate([{ transform: 'scale(.985)' }, { transform: 'scale(1)' }], { duration: 220, easing: 'ease-out' });
+  }
+  renderVals(){
+    const { from, to, hours, m } = this.state;
+    const hrs = Math.max(0, this.H[to] - this.H[from]) * this.M[m][1];
+    const months = Math.max(1, Math.round(hrs / hours / 4.33));
+    return {
+      resRef: el => { this._r = el },
+      fromOpts: [0, 1, 2, 3, 4].map(i => ({ l: this.L[i], on: i === from, off: i !== from, go: () => this.setState(s => ({ from: i, to: Math.max(s.to, i + 1) })) })),
+      toOpts: [1, 2, 3, 4, 5].map(i => ({ l: this.L[i], on: i === to, off: i !== to, go: () => this.setState(s => ({ to: i, from: Math.min(s.from, i - 1) })) })),
+      hours, onHours: e => this.setState({ hours: +e.target.value }),
+      methods: this.M.map(([l], i) => ({ l, on: i === m, off: i !== m, go: () => this.setState({ m: i }) })),
+      months, summary: '≈ ' + Math.round(hrs) + ' hours to go from ' + this.L[from] + ' to ' + this.L[to] + ' at ' + hours + ' h/week.',
+      road: [1, 2, 3, 4, 5].map(i => ({ l: this.L[i], d: this.D[i], inRange: i > from && i <= to, outRange: !(i > from && i <= to) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

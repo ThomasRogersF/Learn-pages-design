@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Learn Page — Listening practice" description="Calm-direction audio lesson: full-conversation player with speed control, chat-style transcript with line replay and EN toggle, comprehension check, key phrases" -->
+<helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Kumbh+Sans:wght@400;500;600;700;800&display=swap"><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}summary::-webkit-details-marker{display:none}a{color:#2D6E67}a:hover{color:#1F4F4A}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}</style></helmet>
+<div ref="{{ rootRef }}" style="background:#FBF7F1;font-family:'Kumbh Sans',sans-serif;color:#1B2B40;min-height:100%">
+<header style="position:sticky;top:0;z-index:10;background:rgba(251,247,241,.95);border-bottom:1px solid #EDE5D8">
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;gap:28px">
+<img src="../../assets/logo.png" alt="SpanishVIP" style="height:30px;width:auto">
+<nav style="display:flex;gap:22px;font-size:14px;font-weight:600;color:#4A5A6E;flex:1;overflow:hidden">
+<a href="#" style="color:inherit;text-decoration:none">Grammar</a>
+<a href="#" style="color:inherit;text-decoration:none">Vocabulary</a>
+<a href="#" style="color:#1B2B40;text-decoration:none">Listening</a>
+<a href="#" style="color:inherit;text-decoration:none">Quizzes</a>
+</nav>
+<a href="#" style="flex:none;font-size:14px;font-weight:700;color:#1B2B40;text-decoration:none;border:1.5px solid #1B2B40;border-radius:999px;padding:8px 16px">Try a free class</a>
+</div>
+<div style="height:3px"><div ref="{{ progRef }}" style="height:3px;width:0;background:#5BB8AE;border-radius:0 3px 3px 0"></div></div>
+</header>
+<div style="max-width:1160px;margin:0 auto;padding:0 28px;display:flex;gap:56px;align-items:flex-start;justify-content:center">
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<aside style="flex:0 0 190px;position:sticky;top:92px;margin-top:150px;display:grid;gap:2px">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6E7A89;margin:0 0 8px 12px">On this page</span>
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="7"><a href="{{ t.href }}" style="font-size:14px;font-weight:600;color:#4A5A6E;text-decoration:none;padding:7px 12px;border-left:2px solid #E6DED0" style-hover="color:#1B2B40;border-left-color:#5BB8AE">{{ t.label }}</a></sc-for>
+</aside>
+</sc-if>
+<main style="flex:1 1 auto;max-width:760px;min-width:0;padding:36px 0 88px">
+<nav style="display:flex;gap:8px;font-size:13px;color:#6E7A89;font-weight:600"><a href="#" style="color:inherit;text-decoration:none">Learn</a><span>/</span><a href="#" style="color:inherit;text-decoration:none">Listening</a><span>/</span><span style="color:#1B2B40">At the mercado</span></nav>
+<div style="display:flex;gap:8px;margin-top:22px;flex-wrap:wrap">
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#E3F3F0;color:#2D6E67">A1 · Beginner</span>
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#FDEBDF;color:#A44A1D">Slow Spanish</span>
+<span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#EFEAF7;color:#5B4B85">8 lines · 2 min · Mexican accent</span>
+</div>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(38px,6vw,54px);line-height:1.04;letter-spacing:-.025em;margin:18px 0 0;text-wrap:balance">Ana &amp; Luis go to the <span style="color:#E8672E">mercado</span></h1>
+<p style="font-size:19px;line-height:1.55;color:#4A5A6E;margin:16px 0 0;max-width:58ch;text-wrap:pretty">A short everyday conversation, spoken clearly and slightly slowed. Listen, follow the transcript, then check what you caught.</p>
+<div style="display:flex;align-items:center;gap:12px;margin-top:22px">
+<img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:50% 12%;background:#E3F3F0">
+<span style="font-size:14px;color:#4A5A6E"><b style="color:#1B2B40">Gabriela L.</b> · Native teacher, Guadalajara · Updated Jun 9, 2026</span>
+</div>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;overflow-x:auto;margin-top:24px;padding:10px 0">
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="7"><a href="{{ t.href }}" style="flex:none;font-size:13px;font-weight:700;color:#1B2B40;text-decoration:none;padding:8px 14px;border-radius:999px;background:#FFFFFF;border:1px solid #EDE5D8">{{ t.label }}</a></sc-for>
+</div>
+</sc-if>
+<section id="l-listen" style="scroll-margin-top:90px;margin-top:30px;border-radius:32px;overflow:hidden;background:#1B2B40;color:#FFFFFF">
+<div style="position:relative;aspect-ratio:16/7;background:#2A3D55"><img src="../../assets/learn/photo-market-fruit.png" alt="Fruit stand at a Mexican market" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.92"><span style="position:absolute;left:20px;top:20px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:#FFFFFF;color:#1B2B40;border-radius:999px;padding:6px 12px">Episode 01</span></div>
+<div style="padding:24px 28px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 22px">
+<button onClick="{{ toggleAll }}" aria-label="{{ playLabel }}" style="flex:none;width:72px;height:72px;border-radius:999px;border:0;cursor:pointer;background:#E8672E;color:#FFFFFF;display:grid;place-items:center;box-shadow:0 6px 0 #B84E1F" style-active="transform:translateY(5px);box-shadow:0 1px 0 #B84E1F">
+<sc-if value="{{ isPlaying }}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="currentColor"></rect><rect x="14" y="4" width="5" height="16" rx="1.5" fill="currentColor"></rect></svg></sc-if>
+<sc-if value="{{ notPlaying }}" hint-placeholder-val="{{ true }}"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="currentColor"></path></svg></sc-if>
+</button>
+<div style="flex:1 1 260px;min-width:0">
+<b style="font-family:'Bricolage Grotesque';font-size:22px">{{ playTitle }}</b>
+<div style="display:flex;gap:4px;margin-top:12px">
+<sc-for list="{{ segs }}" as="s" hint-placeholder-count="8"><span style="flex:1;height:6px;border-radius:999px;background:#3A4F68;overflow:hidden"><span hidden="{{ s.off }}" style="display:block;height:6px;background:#5BB8AE"></span></span></sc-for>
+</div>
+</div>
+<div style="flex:none;display:flex;background:#2A3D55;border-radius:999px;padding:4px">
+<sc-if value="{{ isSlow }}" hint-placeholder-val="{{ true }}"><button onClick="{{ setSlow }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#FFFFFF;color:#1B2B40">0.75×</button><button onClick="{{ setNormal }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#C9D2DD">1×</button></sc-if>
+<sc-if value="{{ isNormal }}" hint-placeholder-val="{{ false }}"><button onClick="{{ setSlow }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#C9D2DD">0.75×</button><button onClick="{{ setNormal }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#FFFFFF;color:#1B2B40">1×</button></sc-if>
+</div>
+</div>
+</section>
+<section id="l-method" style="scroll-margin-top:90px;margin-top:64px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Listen three times</h2>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0;max-width:60ch">Each pass trains something different. The third is where it clicks.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:22px">
+<div style="background:#E3F3F0;border-radius:22px;padding:22px"><span style="font-size:12px;font-weight:800;color:#2D6E67">PASS 1</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:6px">Eyes closed</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Catch the gist. Gaps are normal.</p></div>
+<div style="background:#FDEBDF;border-radius:22px;padding:22px"><span style="font-size:12px;font-weight:800;color:#A44A1D">PASS 2</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:6px">With transcript</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Replay any line you missed.</p></div>
+<div style="background:#EFEAF7;border-radius:22px;padding:22px"><span style="font-size:12px;font-weight:800;color:#5B4B85">PASS 3</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:6px">Full speed</b><p style="margin:6px 0 0;font-size:15px;line-height:1.5">Switch to 1× and just listen.</p></div>
+</div>
+</section>
+<section id="l-transcript" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">The conversation</h2>
+<div style="display:flex;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:999px;padding:4px">
+<sc-if value="{{ showEn }}" hint-placeholder-val="{{ true }}"><button onClick="{{ showBoth }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">ES + EN</button><button onClick="{{ showEs }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">ES only</button></sc-if>
+<sc-if value="{{ hideEn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ showBoth }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:transparent;color:#4A5A6E">ES + EN</button><button onClick="{{ showEs }}" style="appearance:none;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px;background:#1B2B40;color:#FFFFFF">ES only</button></sc-if>
+</div>
+</div>
+<div style="display:grid;gap:12px;margin-top:22px;background:#FFFFFF;border-radius:28px;padding:24px;border:1px solid #EDE5D8">
+<sc-for list="{{ lines }}" as="l" hint-placeholder-count="8">
+<sc-if value="{{ l.ana }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;gap:10px;align-items:flex-end;max-width:86%">
+<span style="flex:none;width:34px;height:34px;border-radius:999px;background:#5BB8AE;color:#FFFFFF;display:grid;place-items:center;font-weight:800;font-size:14px">A</span>
+<div ref="{{ l.ref }}" style="display:flex;gap:12px;align-items:center;background:#E3F3F0;border-radius:20px 20px 20px 6px;padding:12px 16px;transition:transform .25s,box-shadow .25s">
+<button onClick="{{ l.play }}" aria-label="Play line" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#2D9C8F;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button>
+<div><div style="font-size:17px;font-weight:600;line-height:1.35">{{ l.es }}</div><sc-if value="{{ showEn }}" hint-placeholder-val="{{ true }}"><div style="font-size:14px;color:#4A5A6E;margin-top:3px">{{ l.en }}</div></sc-if></div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ l.luis }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:10px;align-items:flex-end;max-width:86%;margin-left:auto;flex-direction:row-reverse">
+<span style="flex:none;width:34px;height:34px;border-radius:999px;background:#E8672E;color:#FFFFFF;display:grid;place-items:center;font-weight:800;font-size:14px">L</span>
+<div ref="{{ l.ref }}" style="display:flex;gap:12px;align-items:center;background:#FDEBDF;border-radius:20px 20px 6px 20px;padding:12px 16px;transition:transform .25s,box-shadow .25s">
+<button onClick="{{ l.play }}" aria-label="Play line" style="flex:none;width:34px;height:34px;border-radius:999px;border:0;background:#E8672E;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button>
+<div><div style="font-size:17px;font-weight:600;line-height:1.35">{{ l.es }}</div><sc-if value="{{ showEn }}" hint-placeholder-val="{{ true }}"><div style="font-size:14px;color:#4A5A6E;margin-top:3px">{{ l.en }}</div></sc-if></div>
+</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</section>
+<section id="l-check" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/enye-cards.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Did you catch it?</h2></div>
+<div style="margin-top:20px;background:#DDF0EC;border-radius:28px;padding:clamp(18px,4vw,28px);display:grid;gap:14px">
+<sc-for list="{{ checks }}" as="c" hint-placeholder-count="3">
+<div ref="{{ c.ref }}" style="background:#FFFFFF;border-radius:20px;padding:20px 22px">
+<b style="font-family:'Bricolage Grotesque';font-size:20px;letter-spacing:-.01em">{{ c.q }}</b>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
+<sc-for list="{{ c.opts }}" as="o" hint-placeholder-count="3">
+<sc-if value="{{ o.idle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;font:inherit;font-size:15px;font-weight:700;padding:11px 18px;border-radius:14px;background:#FFFFFF;border:2px solid #E6DED0;box-shadow:0 3px 0 #E6DED0;color:#1B2B40" style-hover="border-color:#5BB8AE;box-shadow:0 3px 0 #5BB8AE" style-active="transform:translateY(3px);box-shadow:0 0 0 #5BB8AE">{{ o.label }}</button></sc-if>
+<sc-if value="{{ o.right }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:800;padding:11px 18px;border-radius:14px;background:#E3F3F0;border:2px solid #2D9C8F;box-shadow:0 3px 0 #2D9C8F;color:#1F4F4A">✓ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.wrong }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:800;padding:11px 18px;border-radius:14px;background:#FFF1EA;border:2px solid #E8672E;box-shadow:0 3px 0 #E8672E;color:#A44A1D">✕ {{ o.label }}</span></sc-if>
+<sc-if value="{{ o.dim }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;font-weight:700;padding:11px 18px;border-radius:14px;background:#FFFFFF;border:2px solid #EFE9DF;color:#6E7A89">{{ o.label }}</span></sc-if>
+</sc-for>
+</div>
+<sc-if value="{{ c.done }}" hint-placeholder-val="{{ false }}"><p style="margin:12px 0 0;font-size:15px;color:#4A5A6E">{{ c.why }}</p></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+<div ref="{{ scoreRef }}" style="display:flex;align-items:center;gap:16px;background:#FFF4DA;border-radius:20px;padding:16px 20px">
+<img src="../../assets/learn/icons/star.png" alt="" style="flex:none;width:52px;height:52px;object-fit:contain">
+<div style="flex:1;min-width:0"><b style="font-family:'Bricolage Grotesque';font-size:22px">{{ scoreTitle }}</b><div style="font-size:15px;color:#4A5A6E">{{ scoreText }}</div></div>
+<button onClick="{{ resetChecks }}" style="appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;font-weight:800;font-size:14px;color:#7A5C17">Try again</button>
+</div>
+</sc-if>
+</div>
+</section>
+<section id="l-phrases" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Phrases to steal</h2><img src="../../assets/learn/characters/glasses-book.png" alt="" style="flex:none;width:84px;height:auto;margin-bottom:-8px"></div>
+<p style="font-size:17px;line-height:1.6;color:#4A5A6E;margin:8px 0 0;max-width:60ch">Six chunks from the conversation you can use today. Tap to hear each one.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px">
+<sc-for list="{{ phrases }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;gap:12px;align-items:center;background:#FFFFFF;border:1px solid #EDE5D8;border-radius:20px;padding:16px 18px">
+<button onClick="{{ p.play }}" aria-label="Play phrase" style="flex:none;width:38px;height:38px;border-radius:999px;border:0;background:#2D9C8F;color:#FFFFFF;cursor:pointer;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"></path></svg></button>
+<div><b style="font-family:'Bricolage Grotesque';font-size:19px">{{ p.es }}</b><div style="font-size:14px;color:#4A5A6E">{{ p.en }}</div></div>
+</div>
+</sc-for>
+</div>
+</section>
+<section style="margin-top:56px;display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;background:#FFFFFF;border-radius:28px;padding:28px;box-shadow:0 1px 2px rgba(27,43,64,.04),0 18px 40px -24px rgba(27,43,64,.18)">
+<img src="../../assets/learn/teachers/headshot-woman-curly.png" alt="Gabriela L., SpanishVIP teacher" style="flex:0 0 72px;width:72px;height:72px;border-radius:22px;object-fit:cover;object-position:50% 12%;background:#E3F3F0">
+<div style="flex:1 1 300px;min-width:0">
+<span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D6E67">Teacher tip · Gabriela</span>
+<p style="font-family:'Bricolage Grotesque';font-weight:600;font-size:21px;line-height:1.4;letter-spacing:-.01em;margin:8px 0 0;text-wrap:pretty">"Repeat the same episode for a week before moving on. Shadow each line out loud: listening trains your ear, but speaking it is what makes it stick."</p>
+</div>
+</section>
+<section id="l-faq" style="scroll-margin-top:90px;margin-top:64px">
+<div style="display:flex;align-items:center;gap:14px"><img src="../../assets/learn/icons/question-bubbles.png" alt="" style="flex:none;width:56px;height:56px;object-fit:contain"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em;margin:0">Questions learners ask</h2></div>
+<div style="display:grid;gap:10px;margin-top:22px">
+<details open="" style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">What level is this episode for?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">A1, absolute beginner. Short sentences, everyday market and time vocabulary.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Is this Mexican or Spain Spanish?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Mexican, recorded by a teacher from Guadalajara. The grammar is the same everywhere.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">How long until I understand fast Spanish?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">Most learners follow normal-speed Spanish on familiar topics after 80–150 hours of focused listening.</p></details>
+<details style="background:#FFFFFF;border:1px solid #EDE5D8;border-radius:18px;padding:0 22px"><summary style="list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;gap:12px">Should I read the English?<span style="color:#2D6E67">+</span></summary><p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#4A5A6E">On pass 2 only. Switch to "ES only" once you know the story.</p></details>
+</div>
+</section>
+<section id="l-next" style="scroll-margin-top:90px;margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<a href="#" style="text-decoration:none;color:inherit;background:#FFFFFF;border-radius:24px;overflow:hidden;border:1px solid #EDE5D8"><div style="aspect-ratio:16/8;background:#EFEAF7;overflow:hidden"><img src="../../assets/learn/photo-cafe-medellin.png" alt="Café table with coffee and notebook" style="width:100%;height:100%;object-fit:cover;display:block"></div><div style="padding:18px 20px"><span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#5B4B85">NEXT EPISODE · A1</span><b style="display:block;font-family:'Bricolage Grotesque';font-size:20px;margin-top:4px">Ordering at the café</b><span style="font-size:14px;color:#4A5A6E">Ana orders for two. Can you keep up?</span></div></a>
+<div style="position:relative;overflow:hidden;background:#1B2B40;color:#FFFFFF;border-radius:24px;padding:24px 120px 24px 24px;display:grid;align-content:space-between;gap:16px"><img src="../../assets/learn/characters/ponytail-waving.png" alt="" style="position:absolute;right:-6px;bottom:-14px;width:130px;height:auto;pointer-events:none"><div style="position:relative"><b style="font-family:'Bricolage Grotesque';font-size:22px">Now say it to a real person</b><p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#C9D2DD">Practice this conversation in a free class.</p></div><a href="#" style="position:relative;justify-self:start;background:#E8672E;color:#FFFFFF;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:12px 20px">Try a free class</a></div>
+</section>
+</main>
+</div>
+<footer style="border-top:1px solid #EDE5D8;background:#F5EFE6">
+<div style="max-width:1160px;margin:0 auto;padding:44px 28px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px">
+<div style="display:grid;gap:12px;align-content:start"><img src="../../assets/logo.png" alt="SpanishVIP" style="height:28px;width:auto;justify-self:start"><span style="font-size:14px;line-height:1.5;color:#4A5A6E">Free Spanish lessons from native teachers.</span></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">LEARN</b><a href="#" style="color:#1B2B40;text-decoration:none">Grammar</a><a href="#" style="color:#1B2B40;text-decoration:none">Vocabulary</a><a href="#" style="color:#1B2B40;text-decoration:none">Slang</a><a href="#" style="color:#1B2B40;text-decoration:none">Listening</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">PRACTICE</b><a href="#" style="color:#1B2B40;text-decoration:none">Level test</a><a href="#" style="color:#1B2B40;text-decoration:none">Verb conjugator</a><a href="#" style="color:#1B2B40;text-decoration:none">Word of the day</a></div>
+<div style="display:grid;gap:8px;align-content:start;font-size:14px"><b style="font-size:12px;letter-spacing:.12em;color:#6E7A89">SPANISHVIP</b><a href="#" style="color:#1B2B40;text-decoration:none">Live classes</a><a href="#" style="color:#1B2B40;text-decoration:none">Teachers</a><a href="#" style="color:#1B2B40;text-decoration:none">Reviews</a></div>
+</div>
+<div style="max-width:1160px;margin:0 auto;padding:16px 28px 28px;border-top:1px dashed #DDD3C3;font-size:13px;color:#6E7A89">© 2026 SpanishVIP</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: true, playing: false, cur: -1, played: 0, slow: true, en: true, picks: [null, null, null] };
+  LINES = [
+    ['a', '¡Hola! ¿Cómo estás?', 'Hi! How are you?'],
+    ['l', 'Muy bien, gracias. ¿Y tú?', 'Very well, thanks. And you?'],
+    ['a', 'Bien. ¿Qué vas a hacer hoy?', 'Good. What are you going to do today?'],
+    ['l', 'Voy al mercado a comprar fruta. ¿Quieres venir?', "I'm going to the market to buy fruit. Do you want to come?"],
+    ['a', 'Sí, claro. ¿A qué hora?', 'Yes, of course. What time?'],
+    ['l', 'A las diez. Nos vemos en la entrada.', 'At ten. See you at the entrance.'],
+    ['a', 'Perfecto. ¿Compramos mangos también?', 'Perfect. Shall we buy mangoes too?'],
+    ['l', '¡Sí! Hasta luego.', 'Yes! See you later.']
+  ];
+  CHECKS = [
+    { q: 'Where is Luis going?', opts: ['To the gym', 'To the market', 'To the cinema'], a: 1, why: '"Voy al mercado" means "I\'m going to the market."' },
+    { q: 'What time do they meet?', opts: ['At nine', 'At noon', 'At ten'], a: 2, why: '"A las diez" means "at ten."' },
+    { q: 'Where will they meet?', opts: ['At the entrance', 'At the café', "At Luis's house"], a: 0, why: '"Nos vemos en la entrada" means "see you at the entrance."' }
+  ];
+  PHRASES = [
+    ['¿Qué vas a hacer hoy?', 'What are you doing today?'], ['¿Quieres venir?', 'Do you want to come?'],
+    ['Sí, claro.', 'Yes, of course.'], ['¿A qué hora?', 'What time?'],
+    ['Nos vemos en…', 'See you at…'], ['Hasta luego.', 'See you later.']
+  ];
+  _lineEls = []; _checkEls = [];
+  componentDidMount(){
+    this._onScroll = () => {
+      const r = this._root; if (!r || !this._prog) return;
+      const b = r.getBoundingClientRect(), h = window.innerHeight;
+      this._prog.style.width = (Math.min(1, Math.max(0, -b.top / Math.max(1, b.height - h))) * 100) + '%';
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    if (window.ResizeObserver && this._root) {
+      this._ro = new ResizeObserver(([e]) => this.setState({ wide: e.contentRect.width >= 1040 }));
+      this._ro.observe(this._root);
+    }
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); this._ro && this._ro.disconnect(); this.stop() }
+  componentDidUpdate(){ this.highlight() }
+  highlight(){
+    this._lineEls.forEach((el, i) => { if (!el) return; const on = i === this.state.cur;
+      el.style.transform = on ? 'scale(1.03)' : 'none';
+      el.style.boxShadow = on ? '0 0 0 3px ' + (this.LINES[i][0] === 'a' ? '#5BB8AE' : '#F2A27A') + ', 0 12px 24px -14px rgba(27,43,64,.4)' : 'none'; });
+  }
+  speak(text, idx, done){
+    const ss = window.speechSynthesis;
+    this.setState({ cur: idx });
+    if (!ss) { this._t = setTimeout(() => { this.setState({ cur: -1 }); done && done() }, 1400); return }
+    ss.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'es-MX'; u.rate = this.state.slow ? .78 : 1;
+    if (idx >= 0) u.pitch = this.LINES[idx][0] === 'a' ? 1.15 : .9;
+    u.onend = () => { this.setState({ cur: -1 }); done && done() };
+    ss.speak(u);
+  }
+  stop(){ clearTimeout(this._t); this._seq = false; window.speechSynthesis && speechSynthesis.cancel(); }
+  playFrom(i){
+    if (i >= this.LINES.length) { this._seq = false; this.setState({ playing: false, cur: -1, played: this.LINES.length }); return }
+    this._seq = true; this.setState({ playing: true, played: i });
+    this.speak(this.LINES[i][1], i, () => { if (this._seq) { this.setState({ played: i + 1 }); this._t = setTimeout(() => this._seq && this.playFrom(i + 1), 450) } });
+  }
+  toggleAll(){
+    if (this.state.playing) { this.stop(); this.setState({ playing: false, cur: -1 }); return }
+    const start = this.state.played >= this.LINES.length ? 0 : this.state.played;
+    this.playFrom(start);
+  }
+  pick(ci, oi){
+    if (this.state.picks[ci] !== null) return;
+    const ok = this.CHECKS[ci].a === oi;
+    this.setState(s => { const p = s.picks.slice(); p[ci] = oi; return { picks: p } });
+    const el = this._checkEls[ci];
+    if (el && el.animate) el.animate(ok
+      ? [{ transform: 'scale(1)' }, { transform: 'scale(1.03)' }, { transform: 'scale(.99)' }, { transform: 'scale(1)' }]
+      : [{ transform: 'translateX(0)' }, { transform: 'translateX(-10px)' }, { transform: 'translateX(9px)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(0)' }],
+      { duration: ok ? 420 : 380, easing: 'cubic-bezier(.3,1.4,.5,1)' });
+  }
+  renderVals(){
+    const { wide, playing, played, slow, en, picks } = this.state, n = this.LINES.length;
+    const score = picks.filter((p, i) => p === this.CHECKS[i].a).length, allDone = picks.every(p => p !== null);
+    return {
+      rootRef: el => { this._root = el }, progRef: el => { this._prog = el },
+      wide, narrow: !wide,
+      toc: [
+        { href: '#l-listen', label: 'Listen' }, { href: '#l-method', label: 'How to listen' }, { href: '#l-transcript', label: 'Transcript' },
+        { href: '#l-check', label: 'Check yourself' }, { href: '#l-phrases', label: 'Key phrases' }, { href: '#l-faq', label: 'FAQ' }, { href: '#l-next', label: 'Next episode' }
+      ],
+      isPlaying: playing, notPlaying: !playing, playLabel: playing ? 'Pause conversation' : 'Play conversation',
+      playTitle: playing ? 'Playing line ' + Math.min(played + 1, n) + ' of ' + n : played >= n ? 'Play it again' : played > 0 ? 'Resume conversation' : 'Play the full conversation',
+      toggleAll: () => this.toggleAll(),
+      segs: this.LINES.map((_, i) => ({ off: i >= played && !(playing && i === played) })),
+      setSlow: () => this.setState({ slow: true }), setNormal: () => this.setState({ slow: false }),
+      isSlow: slow, isNormal: !slow,
+      showEn: en, showBoth: () => this.setState({ en: true }), showEs: () => this.setState({ en: false }),
+      hideEn: !en,
+      lines: this.LINES.map(([who, es, enT], i) => ({
+        ana: who === 'a', luis: who === 'l', es, en: enT,
+        ref: el => { this._lineEls[i] = el }, play: () => { this.stop(); this.setState({ playing: false }); this.speak(es, i) }
+      })),
+      checks: this.CHECKS.map((c, ci) => {
+        const p = picks[ci], done = p !== null;
+        return { q: c.q, why: c.why, done, ref: el => { this._checkEls[ci] = el },
+          opts: c.opts.map((label, oi) => ({ label, pick: () => this.pick(ci, oi),
+            idle: !done, right: done && oi === c.a, wrong: done && oi === p && oi !== c.a, dim: done && oi !== c.a && oi !== p })) };
+      }),
+      allDone, scoreTitle: score === 3 ? '¡Perfecto! 3 of 3' : score === 2 ? '¡Muy bien! 2 of 3' : score + ' of 3. Listen once more.',
+      scoreText: score === 3 ? 'Your ear is ready for the next episode.' : 'Replay the lines you missed, then try again.',
+      scoreRef: el => { if (el && el.animate) el.animate([{ transform: 'scale(.9)', opacity: 0 }, { transform: 'scale(1.02)', opacity: 1 }, { transform: 'scale(1)' }], { duration: 500, easing: 'cubic-bezier(.3,1.4,.5,1)' }) },
+      resetChecks: () => this.setState({ picks: [null, null, null] }),
+      phrases: this.PHRASES.map(([es, enT]) => ({ es, en: enT, play: () => { this.stop(); this.setState({ playing: false }); this.speak(es.replace('…', ''), -1) } }))
+    };
+  }
+}
+</script>
+</body>
+</html>

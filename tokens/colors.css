@@ -1,0 +1,32 @@
+:root{
+/* Brand base */
+--brand-teal:#6DC1B9;
+--brand-orange:#FF7D43;
+--brand-coral:#FC8854;
+--brand-navy:#1E3148;
+--brand-cyan:#46BDC6;
+--brand-cream:#FAF6F0;
+/* Tints & shades */
+--teal-100:#E7F5F3;--teal-200:#CBE9E5;--teal-600:#4EA79E;--teal-700:#3B8A82;
+--orange-100:#FFEDE4;--orange-600:#E8703C;
+--navy-70:rgba(30,49,72,.78);--navy-55:rgba(30,49,72,.55);--navy-25:rgba(30,49,72,.25);--navy-12:rgba(30,49,72,.12);
+--cream-deep:#F3ECE1;
+/* Semantic */
+--text-heading:var(--brand-navy);
+--text-body:var(--brand-navy);
+--text-muted:var(--navy-70);
+--text-fineprint:#40536C;
+--text-on-accent:#FFFFFF;
+--surface-page:var(--brand-cream);
+--surface-card:#FFFFFF;
+--surface-card-warm:#FBF6EC;
+--surface-inverse:var(--brand-navy);
+--accent-cta:var(--brand-orange);
+--accent-cta-hover:var(--orange-600);
+--accent-urgency:var(--brand-orange);
+--accent-link:var(--brand-cyan);
+--accent-link-hover:var(--teal-700);
+--border-subtle:var(--navy-12);
+--border-dashed:var(--navy-25);
+--focus-ring:0 0 0 3px rgba(70,189,198,.55);
+}
